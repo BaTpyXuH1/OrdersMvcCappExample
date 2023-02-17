@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>order-detail</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<div class="container-fluid text-center">
+    <h1>Описание заказа</h1><br><br>
+    <!--    форма добавления заказа-->
+    <h2>[[${order}]]</h2><br><br>
+    <!--    Кнопка Cancel-->
+    <a th:href="@{/order/}" class="btn btn-danger"><h1>Назад</h1></a>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>client-list</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<!--Контейнер страницы-->
+<div class="container-fluid text-center">
+    <h1>Список клиентов</h1>
+<!--    Пройдемся в цикле по каждому клиенту и выведем его-->
+    <table class="table table-bordered">
+<!--        Шапка таблицы-->
+        <thead class="table-dark">
+        <tr>
+            <th>ID</th>
+            <th>Имя клиента</th>
+            <th>Меню</th>
+        </tr>
+        </thead>
+
+        <th:block th:each="client: ${clients}">
+            <!--        В каждой строке таблицы выведем клиента-->
+            <tr>
+                <td>[[${client.id}]]</td>
+                <td>[[${client.clientName}]]</td>
+                <td>
+                    <a th:href="@{'/client/delete/' + ${client.id}}" class="btn btn-danger">Удалить</a>
+                    <a th:href="@{'/client/update/' + ${client.id}}" class="btn btn-warning">Изменить</a>
+                    <a th:href="@{'/client/detail/' + ${client.id}}" class="btn btn-primary">Описание</a>
+                    <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                    <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
+                    <a th:href="@{/orderItem/}" class="btn btn-danger">Список заказов товаров</a>
+                </td>
+            </tr>
+        </th:block>
+    </table><br><br>
+<!--    Добавление клиента-->
+    <div>
+        <a th:href="@{/client/add/}" class="btn btn-success"><h1>Добавить нового клиента</h1></a>
+    </div>
+    <br><br>
+    [[${goodMsg}]]
+
+    <!--    Ссылка на заказы-->
+
+<!--    Ссылка на главную-->
+    <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+
+</div>
+</body>
+</html>

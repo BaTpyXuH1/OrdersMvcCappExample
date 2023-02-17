@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>item-form</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<!--Контейнер страницы-->
+<div class="container-fluid text-center">
+    <h1>Добавить новый товар</h1><br><br>
+    <!--Форма добавления товара-->
+    <form method="post" th:action="@{/item/add/}" th:object="${item}">
+        <!--Название товара-->
+        <label for="item-name">Название товара:</label>
+        <input id="item-name" th:type="text" th:field="*{itemName}" required minlength="1" maxlength="255">
+        <!--Кнопка добавления товара-->
+        <button class="btn btn-primary">Добавить товар</button>
+        <!--Кнопка назад-->
+        <a th:href="@{/item/}" class="btn btn-danger">Назад</a>
+    </form><br><br>
+    <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+</div>
+</body>
+</html>

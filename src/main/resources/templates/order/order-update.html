@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>order-update</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<!--Контейнер страницы-->
+<div class="container-fluid text-center">
+    <h1>Изменить заказ</h1><br><br>
+    <!--    Форма добавления заказа-->
+    <form method="post" th:action="@{/order/update/}" th:object="${order}">
+        <!--        Передаём Id-->
+        <input th:field="*{id}" hidden/>
+        <!--        Имя клиента-->
+        <label for="client-name">Название заказа:</label>
+        <input id="client-name" th:type="text" th:field="*{description}" required minlength="1" maxlength="255"/>
+        <!--        Кнопка отправки-->
+        <button class="btn btn-warning">Сохранить</button>
+        <!--        Кнопка Cancel-->
+        <a th:href="@{/order/}" class="btn btn-danger">Назад</a>
+    </form>
+</div>
+</body>
+</html>
