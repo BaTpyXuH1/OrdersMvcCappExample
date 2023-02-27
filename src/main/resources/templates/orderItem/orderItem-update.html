@@ -9,8 +9,6 @@
 <!--Контейнер страницы-->
 <div class="container-fluid text-center">
     <h1>Изменить кол-во товаров</h1>
-    <!--    Форма изменения заказа-->
-
     <form method="post" th:action="@{/orderItem/update/}"  th:object="${orderItem}">
         <!--        Передаём Id-->
         <input th:field="*{id}" hidden/>
@@ -18,9 +16,7 @@
         <input  th:value="*{item.id}" th:field="*{item}" hidden/>
         <label for="quantityItem-name">Кол-во товаров</label>
         <input id="quantityItem-name" th:type="number" th:field="*{quantityItem}" />
-        <!--        Кнопка отправки-->
         <button class="btn btn-danger">Сохранить</button>
-        <!--        Кнопка Cancel-->
         <a th:href="@{/orderItem/}" class="btn btn-danger">Назад</a>
     </form>
 </div>

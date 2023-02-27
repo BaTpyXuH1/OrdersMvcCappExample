@@ -4,7 +4,6 @@ package org.top.ordersmvccappexample.model.dao.client;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.top.ordersmvccappexample.model.dao.order.OrderRepository;
 import org.top.ordersmvccappexample.model.entity.Client;
 
 

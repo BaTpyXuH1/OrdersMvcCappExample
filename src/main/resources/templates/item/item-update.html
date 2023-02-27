@@ -13,12 +13,9 @@
     <form method="post" th:action="@{/item/update/}" th:object="${item}">
         <!--        Передаём Id-->
         <input th:field="*{id}" hidden/>
-        <!--        Название товара-->
         <label for="item-name">Название товара:</label>
         <input id="item-name" th:type="text" th:field="*{itemName}" required minlength="1" maxlength="255"/>
-        <!--        Кнопка отправки-->
         <button class="btn btn-primary">Сохранить</button>
-        <!--        Кнопка Cancel-->
         <a th:href="@{/item/}" class="btn btn-danger">назад</a>
     </form>
 </div>

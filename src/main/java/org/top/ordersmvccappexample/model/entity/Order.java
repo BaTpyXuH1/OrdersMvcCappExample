@@ -26,6 +26,7 @@ public class Order {
     public Order() {
     }
 
+
     public Order(String description, Client client) {
         this.description = description;
         this.client = client;

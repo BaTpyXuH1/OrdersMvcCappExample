@@ -9,7 +9,6 @@
 <!--Контейнер страницы-->
 <div class="container-fluid text-center">
     <h1>Список заказов товара</h1>
-    <!--    Пройдемся в цикле по каждому заказу и выведем его-->
     <table class="table table-bordered">
         <!--      Шапка таблицы-->
         <thead class="table-dark">
@@ -22,10 +21,8 @@
             <th>Меню</th>
         </tr>
         </thead>
-        <!--        Тело таблицы зацикливание-->
         <tbody>
         <th:block th:each="orderItem :${orderItems}">
-            <!--            В каждой строке таблицы выведем заказ-->
             <tr>
                 <td>[[${orderItem.id}]]</td>
                 <td>[[${orderItem.quantityItem}]]</td>
@@ -44,14 +41,13 @@
             </tr>
         </th:block>
         </tbody>
-    </table><br><br>
-    <!--    Добавление заказа-->
+    </table>
+    <br><br>
     <div>
         <a th:href="@{/orderItem/add/}" class="btn btn-danger"><h1>Добавить новый заказ товаров</h1></a>
     </div>
     <br><br>
-    <!--    Ссылка на главную-->
-    <h3 ><a th:href="@{/}">Вернуться на главную</a></h3>
+    <h3><a th:href="@{/}">Вернуться на главную</a></h3>
     [[${goodMsg}]]
 </div>
 </body>

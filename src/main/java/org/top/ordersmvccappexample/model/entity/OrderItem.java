@@ -19,15 +19,11 @@ public class OrderItem {
 
     public OrderItem(){}
 
-
     public OrderItem(Integer quantityItem, Item item, Order order) {
         this.quantityItem = quantityItem;
         this.item = item;
         this.order = order;
     }
-
-
-
 
     public Integer getId() {
         return id;

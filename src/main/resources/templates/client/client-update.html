@@ -16,9 +16,7 @@
         <!--        Имя клиента-->
         <label for="client-name">Имя клиента:</label>
         <input id="client-name" th:type="text" th:field="*{clientName}" required minlength="1" maxlength="255"/>
-        <!--        Кнопка отправки-->
         <button class="btn btn-success">Сохранить</button>
-        <!--        Кнопка Cancel-->
         <a th:href="@{/client/}" class="btn btn-danger">Назад</a>
     </form>
 </div>

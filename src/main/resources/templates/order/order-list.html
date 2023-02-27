@@ -9,28 +9,21 @@
 <!--Контейнер страницы-->
 <div class="container-fluid text-center">
     <h1>Список заказов</h1>
-    <!--    Пройдемся в цикле по каждому заказу и выведем его-->
     <table class="table table-bordered">
         <!--      Шапка таблицы-->
         <thead class="table-dark">
         <tr>
             <th>ID</th>
             <th>Описание заказа</th>
-            <th>Данные о заказчике</th>
             <th>Меню</th>
-
-
         </tr>
         </thead>
         <!--        Тело таблицы-->
         <tbody>
         <th:block th:each="order :${orders} ">
-            <!--            В каждой строке таблицы выведем заказ-->
             <tr>
                 <td>[[${order.id}]]</td>
                 <td>[[${order.description}]]</td>
-                <td>[[${order.client.clientName}]]</td>
-
                 <td>
                     <a th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
                     <a th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
@@ -49,7 +42,6 @@
         <a th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a>
     </div>
     <br><br>
-    <!--    Ссылка на главную-->
     <h3 ><a th:href="@{/}">Вернуться на главную</a></h3>
     [[${goodMsg}]]
 </div>
