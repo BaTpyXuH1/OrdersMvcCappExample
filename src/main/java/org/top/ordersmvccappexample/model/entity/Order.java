@@ -2,6 +2,9 @@ package org.top.ordersmvccappexample.model.entity;
 
 import jakarta.persistence.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "order_t")
 public class Order {
@@ -13,10 +16,18 @@ public class Order {
     @Column(nullable = false)
     private String description;
     @ManyToOne
-    @JoinColumn(name = "client_id",nullable = false)
+    @JoinColumn(name = "client_id", nullable = false)
     private Client client;
+    @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
+    private Set<OrderItem> orderItemSet = new HashSet<>();
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name = "order_item_t", joinColumns = @JoinColumn(name = "order_id"),
+//            inverseJoinColumns = @JoinColumn(name = "item_id"))
+//    private Set<Item> itemSet = new HashSet<>();
 
-    public Order(){}
+
+    public Order() {
+    }
 
     public Order(Integer id, String description, Client client) {
         this.id = id;
@@ -46,6 +57,14 @@ public class Order {
 
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    public Set<OrderItem> getOrderItemSet() {
+        return orderItemSet;
+    }
+
+    public void setOrderItemSet(Set<OrderItem> orderItemSet) {
+        this.orderItemSet = orderItemSet;
     }
 
     @Override
