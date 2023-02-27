@@ -29,8 +29,8 @@ public class DbDaoOrderTest {
     }
     @Test
     void add() {
-        Client client = dbDaoClient.getById(6);
-        Order order = dbDaoOrder.add(new Order("Воркута",client));
+        Client client = dbDaoClient.getById(2);
+        Order order = dbDaoOrder.add(new Order("asd",client));
         System.out.println(order);
 
 

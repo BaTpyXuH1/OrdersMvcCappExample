@@ -1,34 +1,28 @@
 package org.top.ordersmvccappexample.model.entity;
 
 import jakarta.persistence.*;
-;
 
 @Entity
 @Table(name = "order_t")
 public class Order {
-//Сущность "Заказ"
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(nullable = false, length = 1000)
-    private String description;   // описание заказа
-    //заказ ссылается на клиента
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    @JoinColumn(name = "client_id", nullable = false)
-    public Client client;
 
+    @Column(nullable = false)
+    private String description;
+    @ManyToOne
+    @JoinColumn(name = "client_id",nullable = false)
+    private Client client;
 
-    //конструктор по умолчанию
-    public Order() {
-    }
+    public Order(){}
 
-    //конструктор с параметрами
-    public Order(String description, Client client) {
-
+    public Order(Integer id, String description, Client client) {
+        this.id = id;
         this.description = description;
         this.client = client;
     }
-
 
     public Integer getId() {
         return id;
@@ -56,7 +50,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return "Order{" +
+        return "{" +
                 "id=" + id +
                 ", description='" + description + '\'' +
                 ", client=" + client +

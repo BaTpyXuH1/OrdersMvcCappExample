@@ -23,15 +23,16 @@
         </thead>
         <!--        Тело таблицы-->
         <tbody>
-        <th:block th:each="order :${orders}">
+        <th:block th:each="order :${orders} ">
             <!--            В каждой строке таблицы выведем заказ-->
             <tr>
                 <td>[[${order.id}]]</td>
                 <td>[[${order.description}]]</td>
+
                 <td>
-                    <a th:href="@{'/order/delete/' + ${order.client.id}}" class="btn btn-danger">Удалить</a>
-                    <a th:href="@{'/order/update/' + ${order.client.id}}" class="btn btn-warning">Изменить</a>
-                    <a th:href="@{'/order/detail/' + ${order.client.id}}" class="btn btn-primary">Описание</a>
+                    <a th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
+                    <a th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
+                    <a th:href="@{'/order/detail/' + ${order.id}}" class="btn btn-primary">Описание</a>
                     <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
                     <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
                     <a th:href="@{/orderItem/}" class="btn btn-danger">Список заказов товаров</a>

@@ -47,7 +47,7 @@ public class DbDaoClientTest {
 
     @Test
     void delete() {
-        Client deleted = dbDaoClient.delete(6);
+        Client deleted = dbDaoClient.delete(1);
         System.out.println(deleted);
 
     }

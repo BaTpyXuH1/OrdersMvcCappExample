@@ -6,6 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.top.ordersmvccappexample.model.dao.item.DbDaoItem;
 import org.top.ordersmvccappexample.model.dao.order.DbDaoOrder;
 import org.top.ordersmvccappexample.model.dao.orderitem.DbDaoOrderItem;
+import org.top.ordersmvccappexample.model.entity.Client;
 import org.top.ordersmvccappexample.model.entity.Item;
 import org.top.ordersmvccappexample.model.entity.Order;
 import org.top.ordersmvccappexample.model.entity.OrderItem;
@@ -23,6 +24,8 @@ public class DbDaoOrderItemTest {
 
     @Autowired
     private DbDaoItem dbDaoItem;
+    @Autowired
+    private DbDaoClient daoClient;
 
     @Test
     void listAll() {
@@ -38,6 +41,7 @@ public class DbDaoOrderItemTest {
 
     @Test
     void add() {
+
         Item item = dbDaoItem.getById(9);
         Order order = dbDaoOrder.getById(8);
         OrderItem orderItem = dbDaoOrderItem.add(new OrderItem(10,200, item, order));

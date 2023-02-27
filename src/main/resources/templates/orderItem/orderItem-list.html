@@ -29,7 +29,7 @@
                 <td>[[${orderItem.id}]]</td>
                 <td>[[${orderItem.quantityItem}]]</td>
                 <td>[[${orderItem.order}]]</td>
-                <td>[[${orderItem.item}]]</td>
+                <td>[[${orderItem.item.itemName}]]</td>
                 <td>
                     <a th:href="@{'/orderItem/delete/' + ${orderItem.id}}" class="btn btn-danger">Удалить</a>
                     <a th:href="@{'/orderItem/update/' + ${orderItem.id}}" class="btn btn-primary">Изменить</a>

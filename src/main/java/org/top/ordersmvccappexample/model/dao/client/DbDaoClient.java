@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.top.ordersmvccappexample.model.entity.Client;
 
+
 import java.util.List;
 
 
@@ -13,6 +14,7 @@ import java.util.List;
 public class DbDaoClient implements IDaoClient {
     @Autowired
     private ClientRepository clientRepository;
+
 
 
     @Override

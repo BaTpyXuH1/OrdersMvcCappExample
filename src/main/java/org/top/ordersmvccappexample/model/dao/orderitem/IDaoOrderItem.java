@@ -1,10 +1,23 @@
 package org.top.ordersmvccappexample.model.dao.orderitem;
 
 
-import org.top.ordersmvccappexample.model.dao.IDaoBase;
+import jakarta.transaction.Transactional;
 import org.top.ordersmvccappexample.model.entity.OrderItem;
 
-public interface IDaoOrderItem extends IDaoBase<OrderItem>  {
+import java.util.List;
 
+public interface IDaoOrderItem   {
 
+    List<OrderItem> listAll();
+
+    OrderItem getById(Integer id);
+
+    @Transactional
+    OrderItem add(OrderItem orderItem);
+
+    @Transactional
+    OrderItem update(OrderItem orderItem);
+
+    @Transactional
+    OrderItem delete(Integer id);
 }
