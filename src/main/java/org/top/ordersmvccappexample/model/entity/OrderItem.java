@@ -9,7 +9,7 @@ public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column
-    private Integer quantityItem; // кол- во едениц товара
+    private Integer quantityItem;
     @ManyToOne
     @JoinColumn(name = "item_id", nullable = false)
     private Item item;
@@ -26,12 +26,8 @@ public class OrderItem {
         this.order = order;
     }
 
-    public OrderItem(Integer id, Integer quantityItem, Item item, Order order) {
-        this.id = id;
-        this.quantityItem = quantityItem;
-        this.item = item;
-        this.order = order;
-    }
+
+
 
     public Integer getId() {
         return id;
@@ -67,11 +63,6 @@ public class OrderItem {
 
     @Override
     public String toString() {
-        return "OrderItem{" +
-                "id=" + id +
-                ", quantityItem=" + quantityItem +
-                ", item=" + item +
-                ", order=" + order +
-                '}';
+        return item + ", " + "Кол-во : " + quantityItem +"шт." + ", " +  order ;
     }
 }

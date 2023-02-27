@@ -12,14 +12,11 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
-    private String itemName;          // название товара
+    private String itemName;
     @Column(nullable = false)
-    private Integer itemArticle;      // артикул товара
-
+    private Integer itemArticle;
     @OneToMany(mappedBy = "item",cascade = CascadeType.ALL)
     private Set<OrderItem> orderItemSet = new HashSet<>();
-//    @ManyToMany(mappedBy = "itemSet",cascade = CascadeType.ALL)
-//    private Set<Order> orderSet = new HashSet<>();
 
 
     public Item(){
@@ -69,10 +66,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", itemName='" + itemName + '\'' +
-                ", itemArticle=" + itemArticle +
-                '}';
+        return  itemName  + "(Артикул : " + itemArticle + ")";
     }
 }

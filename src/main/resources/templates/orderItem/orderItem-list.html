@@ -18,6 +18,7 @@
             <th>Количество товаров</th>
             <th>Заказ</th>
             <th>Название товара</th>
+            <th>Артикул</th>
             <th>Меню</th>
         </tr>
         </thead>
@@ -30,6 +31,7 @@
                 <td>[[${orderItem.quantityItem}]]</td>
                 <td>[[${orderItem.order}]]</td>
                 <td>[[${orderItem.item.itemName}]]</td>
+                <td>[[${orderItem.item.itemArticle}]]</td>
                 <td>
                     <a th:href="@{'/orderItem/delete/' + ${orderItem.id}}" class="btn btn-danger">Удалить</a>
                     <a th:href="@{'/orderItem/update/' + ${orderItem.id}}" class="btn btn-primary">Изменить</a>
@@ -47,10 +49,10 @@
     <div>
         <a th:href="@{/orderItem/add/}" class="btn btn-danger"><h1>Добавить новый заказ товаров</h1></a>
     </div>
-    [[${goodMsg}]]
     <br><br>
     <!--    Ссылка на главную-->
     <h3 ><a th:href="@{/}">Вернуться на главную</a></h3>
+    [[${goodMsg}]]
 </div>
 </body>
 </html>

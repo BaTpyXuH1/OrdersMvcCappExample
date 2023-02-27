@@ -20,17 +20,13 @@ public class Order {
     private Client client;
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private Set<OrderItem> orderItemSet = new HashSet<>();
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name = "order_item_t", joinColumns = @JoinColumn(name = "order_id"),
-//            inverseJoinColumns = @JoinColumn(name = "item_id"))
-//    private Set<Item> itemSet = new HashSet<>();
+
 
 
     public Order() {
     }
 
-    public Order(Integer id, String description, Client client) {
-        this.id = id;
+    public Order(String description, Client client) {
         this.description = description;
         this.client = client;
     }
@@ -69,10 +65,9 @@ public class Order {
 
     @Override
     public String toString() {
-        return "{" +
-                "id=" + id +
-                ", description='" + description + '\'' +
-                ", client=" + client +
-                '}';
+        return  description + "-(" + "Заказчик : " +  client + ")";
+
+
     }
 }
+

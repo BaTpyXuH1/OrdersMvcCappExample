@@ -15,7 +15,8 @@
         <thead class="table-dark">
         <tr>
             <th>ID</th>
-            <th>Описание</th>
+            <th>Описание заказа</th>
+            <th>Данные о заказчике</th>
             <th>Меню</th>
 
 
@@ -28,6 +29,7 @@
             <tr>
                 <td>[[${order.id}]]</td>
                 <td>[[${order.description}]]</td>
+                <td>[[${order.client.clientName}]]</td>
 
                 <td>
                     <a th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
@@ -46,10 +48,10 @@
     <div>
         <a th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a>
     </div>
-    [[${goodMsg}]]
     <br><br>
     <!--    Ссылка на главную-->
     <h3 ><a th:href="@{/}">Вернуться на главную</a></h3>
+    [[${goodMsg}]]
 </div>
 </body>
 </html>

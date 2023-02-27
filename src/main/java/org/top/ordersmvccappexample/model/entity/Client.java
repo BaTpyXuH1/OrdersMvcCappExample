@@ -13,7 +13,7 @@ public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer id;
     @Column(nullable = false, length = 200)
-    public String clientName;                // имя клиента
+    public String clientName;
     @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)   // поле в таблице заказов
     public Set<Order> orderSet;
 
@@ -57,7 +57,7 @@ public class Client {
 
     @Override
     public String toString() {
-        return "-" + id + " - " + clientName + "-";
+        return  clientName;
 
     }
 }

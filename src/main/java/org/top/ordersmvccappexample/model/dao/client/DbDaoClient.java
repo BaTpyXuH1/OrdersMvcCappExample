@@ -4,6 +4,7 @@ package org.top.ordersmvccappexample.model.dao.client;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.top.ordersmvccappexample.model.dao.order.OrderRepository;
 import org.top.ordersmvccappexample.model.entity.Client;
 
 
@@ -30,14 +31,14 @@ public class DbDaoClient implements IDaoClient {
 
     @Override
     @Transactional
-    public Client add(Client client) {        //добавить клиента
+    public Client add(Client client) {
         return clientRepository.save(client);
 
     }
 
     @Override
     @Transactional
-    public Client update(Client client) { // обновить сведения о клиенте
+    public Client update(Client client) {
         Client clientTemp = clientRepository.findById(client.getId()).orElse(null); // клиент найден
         if (clientTemp != null)
             clientTemp.setClientName(client.getClientName());
@@ -47,7 +48,7 @@ public class DbDaoClient implements IDaoClient {
 
     @Override
     @Transactional
-    public Client delete(Integer id) {         // удалить клиента
+    public Client delete(Integer id) {
         Client client = clientRepository.findById(id).orElse(null);
         if (client != null)
             clientRepository.deleteById(id);

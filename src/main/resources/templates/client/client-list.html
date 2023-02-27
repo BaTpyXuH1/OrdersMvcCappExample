@@ -16,11 +16,14 @@
         <tr>
             <th>ID</th>
             <th>Имя клиента</th>
+            <th>Количество товаров</th>
+            <th>Заказ</th>
+            <th>Название товара</th>
+            <th>Артикул</th>
             <th>Меню</th>
         </tr>
         </thead>
-
-        <th:block th:each="client: ${clients}">
+        <th:block th:each="client: ${clients}" >
             <!--        В каждой строке таблицы выведем клиента-->
             <tr>
                 <td>[[${client.id}]]</td>
@@ -41,13 +44,9 @@
         <a th:href="@{/client/add/}" class="btn btn-success"><h1>Добавить нового клиента</h1></a>
     </div>
     <br><br>
-    [[${goodMsg}]]
-
-    <!--    Ссылка на заказы-->
-
 <!--    Ссылка на главную-->
     <h3><a th:href="@{/}">Вернутся на главную</a></h3>
-
+    [[${goodMsg}]]
 </div>
 </body>
 </html>
