@@ -16,7 +16,7 @@
         <tr>
             <th>ID</th>
             <th>Имя клиента</th>
-            <th>Меню</th>
+            <th>Меню навигации</th>
         </tr>
         </thead>
         <th:block th:each="client: ${clients}" >
@@ -27,7 +27,7 @@
                 <td>
                     <a th:href="@{'/client/delete/' + ${client.id}}" class="btn btn-danger">Удалить</a>
                     <a th:href="@{'/client/update/' + ${client.id}}" class="btn btn-warning">Изменить</a>
-                    <a th:href="@{'/client/detail/' + ${client.id}}" class="btn btn-primary">Описание</a>
+                    <a th:href="@{'/client/detail/' + ${client.id}}" class="btn btn-info">Описание</a>
                     <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
                     <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
                     <a th:href="@{/orderItem/}" class="btn btn-danger">Список заказов товаров</a>

@@ -15,7 +15,7 @@
         <tr>
             <th>ID</th>
             <th>Описание заказа</th>
-            <th>Меню</th>
+            <th>Меню навигации</th>
         </tr>
         </thead>
         <!--        Тело таблицы-->
@@ -27,7 +27,7 @@
                 <td>
                     <a th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
                     <a th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
-                    <a th:href="@{'/order/detail/' + ${order.id}}" class="btn btn-primary">Описание</a>
+                    <a th:href="@{'/order/detail/' + ${order.id}}" class="btn btn-info">Описание</a>
                     <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
                     <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
                     <a th:href="@{/orderItem/}" class="btn btn-danger">Список заказов товаров</a>
