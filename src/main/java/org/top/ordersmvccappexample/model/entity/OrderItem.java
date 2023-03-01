@@ -16,13 +16,25 @@ public class OrderItem {
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
     private Order order;
+    @ManyToOne
+    @JoinColumn(name = "basket_id",nullable = false)
+    private Basket basket;
 
     public OrderItem(){}
 
-    public OrderItem(Integer quantityItem, Item item, Order order) {
+    public OrderItem(Integer quantityItem, Item item, Order order,Basket basket) {
         this.quantityItem = quantityItem;
         this.item = item;
         this.order = order;
+        this.basket = basket;
+    }
+
+    public Basket getBasket() {
+        return basket;
+    }
+
+    public void setBasket(Basket basket) {
+        this.basket = basket;
     }
 
     public Integer getId() {
@@ -59,6 +71,6 @@ public class OrderItem {
 
     @Override
     public String toString() {
-        return item + ", " + "Кол-во : " + quantityItem +"шт." + ", " +  order ;
+        return item + ", " + "Кол-во : " + quantityItem +"шт." + ", " +  order + "basket" + basket;
     }
 }

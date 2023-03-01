@@ -7,13 +7,13 @@ import java.util.Set;
 @Entity
 @Table(name = "client_t")
 
-public class Client {
+public class Client extends User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    private Integer id;
     @Column(nullable = false, length = 200)
-    public String clientName;
+    private String clientName;
     @OneToMany(mappedBy = "client",cascade = CascadeType.ALL)   // поле в таблице заказов
     public Set<Order> orderSet;
 

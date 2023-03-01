@@ -3,13 +3,11 @@ package org.top.ordersmvccappexample.model.dao.client;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.top.ordersmvccappexample.model.dao.basket.DbDaoBasket;
 import org.top.ordersmvccappexample.model.dao.item.DbDaoItem;
 import org.top.ordersmvccappexample.model.dao.order.DbDaoOrder;
 import org.top.ordersmvccappexample.model.dao.orderitem.DbDaoOrderItem;
-import org.top.ordersmvccappexample.model.entity.Client;
-import org.top.ordersmvccappexample.model.entity.Item;
-import org.top.ordersmvccappexample.model.entity.Order;
-import org.top.ordersmvccappexample.model.entity.OrderItem;
+import org.top.ordersmvccappexample.model.entity.*;
 
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class DbDaoOrderItemTest {
     @Autowired
     private DbDaoItem dbDaoItem;
     @Autowired
-    private DbDaoClient daoClient;
+    private DbDaoBasket dbDaoBasket;
 
     @Test
     void listAll() {
@@ -44,7 +42,8 @@ public class DbDaoOrderItemTest {
 
         Item item = dbDaoItem.getById(9);
         Order order = dbDaoOrder.getById(8);
-        OrderItem orderItem = dbDaoOrderItem.add(new OrderItem(200, item, order));
+        Basket basket = dbDaoBasket.getById(2);
+        OrderItem orderItem = dbDaoOrderItem.add(new OrderItem(200, item, order,basket));
         System.out.println(orderItem);
 
 
