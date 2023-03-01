@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.top.ordersmvccappexample.model.dao.basket.DbDaoBasket;
 import org.top.ordersmvccappexample.model.dao.item.DbDaoItem;
 import org.top.ordersmvccappexample.model.dao.order.DbDaoOrder;
 import org.top.ordersmvccappexample.model.dao.orderitem.DbDaoOrderItem;
@@ -27,8 +26,7 @@ public class OrderItemController {
 
     @Autowired
     private DbDaoItem daoItem;
-    @Autowired
-    private DbDaoBasket daoBasket;
+
 
 
     @GetMapping("/")
@@ -44,8 +42,6 @@ public class OrderItemController {
         OrderItem orderItem = new OrderItem();
         List<Order> orders = daoOrder.listAll();
         List<Item> items = daoItem.listAll();
-        List<Basket> baskets = daoBasket.listAll();
-        model.addAttribute("basket",baskets);
         model.addAttribute("orderItem", orderItem);
         model.addAttribute("orders", orders);
         model.addAttribute("items", items);

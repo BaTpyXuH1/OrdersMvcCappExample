@@ -7,7 +7,7 @@ import java.util.Set;
 @Entity
 @Table(name = "client_t")
 
-public class Client extends User {
+public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,10 +19,6 @@ public class Client extends User {
 
     public Client() {
 
-    }
-    public Client(Integer id,String clientName){
-        this.id = id;
-        this.clientName = clientName;
     }
 
     public Client(String clientName) {

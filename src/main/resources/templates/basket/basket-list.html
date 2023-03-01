@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>orderItem-list</title>
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+</head>
+<body>
+<!--Контейнер страницы-->
+<div class="container-fluid text-center">
+  <h1>Корзина товаров</h1>
+  <table class="table table-bordered">
+    <!--      Шапка таблицы-->
+    <thead class="table-dark">
+    <tr>
+      <th>ID</th>
+      <th>Количество товаров</th>
+      <th>Заказ</th>
+      <th>Название товара</th>
+      <th>Артикул</th>
+      <th>Меню навигации</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each="basket :${baskets}">
+      <tr>
+        <td>[[${basket.id}]]</td>
+        <td>
+          <a th:href="@{'/basket/delete/' + ${basket.id}}" class="btn btn-danger">Удалить</a>
+          <a th:href="@{'/basket/update/' + ${basket.id}}" class="btn btn-primary">Изменить</a>
+          <a th:href="@{'/basket/detail/' + ${basket.id}}" class="btn btn-info">Описание</a>
+        </td>
+      </tr>
+    </th:block>
+    </tbody>
+  </table>
+  <br><br>
+  <div>
+    <a th:href="@{/orderItem/add/}" class="btn btn-danger"><h1>Добавить новую корзину</h1></a>
+  </div>
+  <br><br>
+  <h3><a th:href="@{/}">Вернуться на главную</a></h3>
+  [[${goodMsg}]]
+</div>
+</body>
+</html>

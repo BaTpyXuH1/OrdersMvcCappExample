@@ -42,8 +42,7 @@ public class DbDaoOrderItemTest {
 
         Item item = dbDaoItem.getById(9);
         Order order = dbDaoOrder.getById(8);
-        Basket basket = dbDaoBasket.getById(2);
-        OrderItem orderItem = dbDaoOrderItem.add(new OrderItem(200, item, order,basket));
+        OrderItem orderItem = dbDaoOrderItem.add(new OrderItem(200, item, order));
         System.out.println(orderItem);
 
 

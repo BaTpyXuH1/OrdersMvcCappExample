@@ -14,12 +14,13 @@
     <!--Ссылка на CRUDы-->
     <div>
         <h1><a th:href="@{/client/}" class="btn btn-success">Управление клиентами</a></h1>
-        <h1><a th:href="@{/order/}" class="btn btn-warning">Управление заказами</a></h1>
+        <h1><a th:href="@{/order/}" class="btn btn-warning">Город выдачи товара</a></h1>
         <h1><a th:href="@{/item/}" class="btn btn-primary">Управление товарами</a></h1>
         <h1><a th:href="@{/orderItem/}" class="btn btn-danger">Управление заказами на товары</a></h1>
-    </div>
 
+    </div>
+    <a th:href="@{/basket/}"  class="btn btn-secondary">Корзина товаров</a>
 </div>
-<a th:href="@{/basket/}"  class="btn btn-secondary">Корзина товаров</a>
+
 </body>
 </html>

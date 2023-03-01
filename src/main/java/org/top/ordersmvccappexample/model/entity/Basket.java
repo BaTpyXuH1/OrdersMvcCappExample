@@ -2,8 +2,7 @@ package org.top.ordersmvccappexample.model.entity;
 
 import jakarta.persistence.*;
 
-import java.util.HashSet;
-import java.util.Set;
+
 
 
 @Entity
@@ -15,17 +14,10 @@ public class Basket {
     @Column(nullable = false)
     private String orderItemBasket;
 
-    @ManyToOne
-    @JoinColumn(name = "orderItem_id",nullable = false)
-    public OrderItem orderItem;
-    @OneToMany(mappedBy = "basket",cascade = CascadeType.ALL)
-    private Set<OrderItem> orderItemSet = new HashSet<>();
-
     public Basket(){}
 
-    public Basket(String orderItemBasket, OrderItem orderItem) {
+    public Basket(String orderItemBasket) {
         this.orderItemBasket = orderItemBasket;
-        this.orderItem = orderItem;
     }
 
     public Integer getId() {
@@ -44,24 +36,10 @@ public class Basket {
         this.orderItemBasket = orderItemBasket;
     }
 
-    public OrderItem getOrderItem() {
-        return orderItem;
-    }
 
-    public void setOrderItem(OrderItem orderItem) {
-        this.orderItem = orderItem;
-    }
-
-    public Set<OrderItem> getOrderItemSet() {
-        return orderItemSet;
-    }
-
-    public void setOrderItemSet(Set<OrderItem> orderItemSet) {
-        this.orderItemSet = orderItemSet;
-    }
 
     @Override
     public String toString() {
-        return  orderItemBasket + "-(" +"Заказчик" + orderItem  + ')';
+        return  orderItemBasket + "-(" +"Заказчик" ;
     }
 }

@@ -8,7 +8,7 @@
 <body>
 <!--Контейнер страницы-->
 <div class="container-fluid text-center">
-    <h1>Добавить новый заказ</h1><br><br>
+    <h1>Добавить пункт выдачи товара</h1><br><br>
     <!--Форма добавления заказа-->
     <form method="post" th:action="@{/order/add/}"  th:object="${order}">
         <!--Описание заказа-->
@@ -21,7 +21,7 @@
                 <option th:value="${client.id}">[[${client}]]</option>
             </th:block>
         </select>
-        <button class="btn btn-warning">Добавить заказ</button>
+        <button class="btn btn-warning">Добавить пункт выдачи товара</button>
         <a th:href="@{/order/}" class="btn btn-dark">Назад</a>
     </form><br><br>
     <h3><a th:href="@{/}">Вернутся на главную</a></h3>

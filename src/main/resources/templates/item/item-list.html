@@ -16,6 +16,7 @@
         <tr>
             <th>ID</th>
             <th>Название товара</th>
+            <th>Артикул</th>
             <th>Меню навигации</th>
         </tr>
         </thead>
@@ -25,6 +26,8 @@
             <tr>
                 <td>[[${item.id}]]</td>
                 <td>[[${item.itemName}]]</td>
+                <td>[[${item.itemArticle}]]</td>
+
                 <td>
                     <a th:href="@{'/item/delete/' + ${item.id}}" class="btn btn-danger">Удалить</a>
                     <a th:href="@{'/item/update/' + ${item.id}}" class="btn btn-warning">Изменить</a>

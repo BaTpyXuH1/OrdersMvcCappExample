@@ -29,7 +29,7 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/webjars/**").permitAll()
-                        .requestMatchers("/client/*").hasRole("ADMIN")
+                        .requestMatchers("/user/*").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
