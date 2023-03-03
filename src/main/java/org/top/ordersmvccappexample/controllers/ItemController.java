@@ -3,16 +3,17 @@ package org.top.ordersmvccappexample.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.top.ordersmvccappexample.model.dao.item.IDaoItem;
+import org.top.ordersmvccappexample.model.dao.item.ItemRepository;
 import org.top.ordersmvccappexample.model.dao.order.IDaoOrder;
 import org.top.ordersmvccappexample.model.entity.Item;
 import org.top.ordersmvccappexample.model.entity.Order;
 
+import java.io.IOException;
+import java.util.Base64;
 import java.util.List;
 
 @Controller
@@ -25,9 +26,11 @@ public class ItemController {
     @Autowired
     private IDaoOrder daoOrder;
 
+
     @GetMapping("/")
     public String listAll(Model model) {
         List<Item> items = daoItem.listAll();
+        model.addAttribute("items",daoItem.listAll());
         // Добавляем контекст
         model.addAttribute("items", items);
         return "/item/item-list";
@@ -43,8 +46,13 @@ public class ItemController {
     }
 
     @PostMapping("/add/")
-    public String saveItem(Item item, RedirectAttributes ra) {
-        Item addedItem = daoItem.add(item);
+    public String saveItem(Item item, @RequestParam("previewImageData") MultipartFile imageData,
+                           RedirectAttributes ra) throws IOException {
+        String imageDataAsString = Base64
+                .getEncoder()
+                .encodeToString(imageData.getBytes());
+        item.setPreviewImage(imageDataAsString);
+        Item addedItem = daoItem.add(item);   // save(item)
         ra.addFlashAttribute("goodMsg", "Товар " + addedItem + " добавлен");
         return "redirect:/item/";
     }

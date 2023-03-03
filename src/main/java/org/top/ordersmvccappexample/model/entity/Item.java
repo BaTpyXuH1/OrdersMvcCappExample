@@ -15,6 +15,9 @@ public class Item {
     private String itemName;
     @Column(nullable = false)
     private Integer itemArticle;
+    @Lob
+    @Column(columnDefinition = "MEDIUMBLOB")
+    private String previewImage;
     @OneToMany(mappedBy = "item",cascade = CascadeType.ALL)
     private Set<OrderItem> orderItemSet = new HashSet<>();
 
@@ -54,6 +57,14 @@ public class Item {
 
     public void setItemArticle(Integer itemArticle) {
         this.itemArticle = itemArticle;
+    }
+
+    public String getPreviewImage() {
+        return previewImage;
+    }
+
+    public void setPreviewImage(String previewImage) {
+        this.previewImage = previewImage;
     }
 
     public Set<OrderItem> getOrderItemSet() {
