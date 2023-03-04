@@ -15,6 +15,8 @@ public class Item {
     private String itemName;
     @Column(nullable = false)
     private Integer itemArticle;
+    @Column(nullable = false)
+    private Integer itemPrice;
     @Lob
     @Column(columnDefinition = "MEDIUMBLOB")
     private String previewImage;
@@ -25,12 +27,22 @@ public class Item {
     public Item(){
         id = -1;
         itemArticle = (int)(Math.random()*100000);
+        itemPrice = (int)(Math.random()*10000);
     }
+
 
     public Item(String itemName, Integer itemArticle) {
         this.itemName = itemName;
         this.itemArticle = itemArticle;
 
+    }
+
+
+    public Item(String itemName, Integer itemArticle, Integer itemPrice, String previewImage) {
+        this.itemName = itemName;
+        this.itemArticle = itemArticle;
+        this.itemPrice = itemPrice;
+        this.previewImage = previewImage;
     }
 
 
@@ -58,6 +70,13 @@ public class Item {
     public void setItemArticle(Integer itemArticle) {
         this.itemArticle = itemArticle;
     }
+    public Integer getItemPrice() {
+        return itemPrice;
+    }
+
+    public void setItemPrice(Integer itemPrice) {
+        this.itemPrice = itemPrice;
+    }
 
     public String getPreviewImage() {
         return previewImage;
@@ -77,6 +96,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return "(Id : " + id + ")," + itemName  + "(Артикул : " + itemArticle + ")";
+        return "(Id : " + id + ")," + itemName  + "(Артикул : " + itemArticle + ")( Цена : " + itemPrice + " $)";
     }
 }

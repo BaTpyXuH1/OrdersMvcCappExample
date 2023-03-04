@@ -16,6 +16,7 @@
         <tr>
             <th>Название товара</th>
             <th>Товар</th>
+            <th>Цена $</th>
             <th>Артикул</th>
             <th>Меню навигации</th>
 
@@ -27,6 +28,7 @@
             <tr>
                 <td>[[${item.itemName}]]</td>
                 <td><img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="300" height="200"></td>
+                <td>[[${item.itemPrice}]] </td>
                 <td>[[${item.itemArticle}]]</td>
 
                 <td>
@@ -35,7 +37,7 @@
                     <a th:href="@{'/item/detail/' + ${item.id}}" class="btn btn-info">Описание</a>
                     <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
                     <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
-                    <a th:href="@{/orderItem/}" class="btn btn-danger">Список заказов товаров</a>
+                    <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
                 </td>
             </tr>
         </th:block>

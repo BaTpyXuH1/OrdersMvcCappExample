@@ -8,7 +8,7 @@
 <body>
 <!--Контейнер страницы-->
 <div class="container-fluid text-center">
-    <h1>Список заказов товара</h1>
+    <h1>Корзина товаров</h1>
     <table class="table table-bordered">
         <!--      Шапка таблицы-->
         <thead class="table-dark">
@@ -17,6 +17,7 @@
             <th>Заказ</th>
             <th>Название товара</th>
             <th>Товар</th>
+            <th>Цена $</th>
             <th>Артикул</th>
             <th>Меню навигации</th>
         </tr>
@@ -28,6 +29,7 @@
                 <td>[[${orderItem.order}]]</td>
                 <td>[[${orderItem.item.itemName}]]</td>
                 <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="300" height="200"></td>
+                <td>[[${orderItem.item.itemPrice}]]</td>
                 <td>[[${orderItem.item.itemArticle}]]</td>
                 <td>
                     <a th:href="@{'/orderItem/delete/' + ${orderItem.id}}" class="btn btn-danger">Удалить</a>
@@ -44,7 +46,7 @@
     </table>
     <br><br>
     <div>
-        <a th:href="@{/orderItem/add/}" class="btn btn-danger"><h1>Добавить новый заказ товаров</h1></a>
+        <a th:href="@{/orderItem/add/}" class="btn btn-danger"><h1>Добавить корзину товаров</h1></a>
     </div>
     <br><br>
     <h3><a th:href="@{/}">Вернуться на главную</a></h3>
