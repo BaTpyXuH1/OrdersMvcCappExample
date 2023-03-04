@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>item-detail</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <meta charset="UTF-8">
+    <title>item-detail</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<div class="container-fluid text-center">
-  <h1>Описание товара</h1><br><br>
-  <h2>[[${item}]]</h2><br><br>
-  <td><img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="500" height="400"></td>
-  <a th:href="@{/item/}" class="btn btn-dark"><h1>Назад</h1></a>
-
+<div>
+    <div style="position: absolute" class="container-fluid text-center">
+        <h1>Описание товара</h1><br><br>
+        <div>
+            <h2>[[${item}]]</h2><br><br>
+            <td><img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="500" height="400"></td>
+            <a th:href="@{/item/}" class="btn btn-dark"><h1>Назад</h1></a>
+        </div>
+    </div>
+    <img src="https://d3gykfqzdbmcsi.cloudfront.net/fileadmin/user_upload/sport_lezeca.jpg"
+         width="2500" height="1350">
 </div>
 </body>
 </html>

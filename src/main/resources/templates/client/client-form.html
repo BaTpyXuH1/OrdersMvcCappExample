@@ -6,19 +6,25 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<!--Контейнер страницы-->
-<div class="container-fluid text-center">
-    <h1>Добавить нового клиента</h1><br><br>
-    <!--Форма добавления клиента-->
-    <form method="post" th:action="@{/client/add/}" th:object="${client}">
-        <!--Имя клиента-->
-        <label for="client-name">Имя клиента:</label>
-        <input id="client-name" th:type="text" th:field="*{clientName}" required minlength="1" maxlength="255">
-        <button class="btn btn-success">Добавить клиента</button>
-        <a th:href="@{/client/}" class="btn btn-dark">Назад</a>
-    </form><br><br>
-    <h3><a th:href="@{/}">Вернутся на главную</a></h3>
-
+<div style="background-size: contain">
+    <div style="position: absolute" class="container-fluid text-center" >
+        <!--Контейнер страницы-->
+        <div>
+            <h1>Добавить нового клиента</h1><br><br>
+            <!--Форма добавления клиента-->
+            <form method="post" th:action="@{/client/add/}" th:object="${client}">
+                <!--Имя клиента-->
+                <label for="client-name">Имя клиента:</label>
+                <input id="client-name" th:type="text" th:field="*{clientName}" required minlength="1" maxlength="255">
+                <button class="btn btn-success">Добавить клиента</button>
+                <a th:href="@{/client/}" class="btn btn-dark">Назад</a>
+            </form>
+            <br><br>
+            <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+        </div>
+    </div>
+    <img  src="https://c.wallhere.com/photos/cd/2f/1920x1116_px_Adriana_Lima_model_sexy_women-799799.jpg!d"
+          width="2500" height="1400">
 </div>
 </body>
 </html>

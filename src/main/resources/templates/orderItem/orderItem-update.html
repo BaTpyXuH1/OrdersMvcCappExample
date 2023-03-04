@@ -6,20 +6,27 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<!--Контейнер страницы-->
-<div class="container-fluid text-center">
-    <h1>Изменить кол-во товаров</h1>
-    <form method="post" th:action="@{/orderItem/update/}"  th:object="${orderItem}">
-        <!--        Передаём Id-->
-        <input th:field="*{id}" hidden/>
-        <input th:value="*{order.id}" th:field="*{order}" hidden/>
-        <input  th:value="*{item.id}" th:field="*{item}" hidden/>
-        <label for="quantityItem-name">Кол-во товаров</label>
-        <input id="quantityItem-name" th:type="number" th:field="*{quantityItem}" />
-        <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="300" height="200"></td>
-        <button class="btn btn-danger">Сохранить</button>
-        <a th:href="@{/orderItem/}" class="btn btn-dark">Назад</a>
-    </form>
+<div>
+    <!--Контейнер страницы-->
+    <div style="position: absolute" class="container-fluid text-center">
+        <h1>Изменить кол-во товаров</h1>
+        <div>
+            <form method="post" th:action="@{/orderItem/update/}" th:object="${orderItem}">
+                <!--        Передаём Id-->
+                <input th:field="*{id}" hidden/>
+                <input th:value="*{order.id}" th:field="*{order}" hidden/>
+                <input th:value="*{item.id}" th:field="*{item}" hidden/>
+                <label for="quantityItem-name">Кол-во товаров</label>
+                <input id="quantityItem-name" th:type="number" th:field="*{quantityItem}"/>
+                <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="300"
+                         height="200"></td>
+                <button class="btn btn-danger">Сохранить</button>
+                <a th:href="@{/orderItem/}" class="btn btn-dark">Назад</a>
+            </form>
+        </div>
+    </div>
+    <img src="https://i.ytimg.com/vi/0jvcF-3oCZk/maxresdefault_live.jpg"
+         width="2500" height="1350">
 </div>
 </body>
 </html>

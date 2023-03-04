@@ -6,18 +6,25 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<!--Контейнер страницы-->
-<div class="container-fluid text-center">
-    <h1>Изменить город получателя</h1><br><br>
-    <!--    Форма добавления заказа-->
-    <form method="post" th:action="@{/order/update/}" th:object="${order}">
-        <!--        Передаём Id-->
-        <input th:field="*{id}" hidden/>
-        <label for="client-name">Название города выдачи:</label>
-        <input id="client-name" th:type="text" th:field="*{description}" required minlength="1" maxlength="255"/>
-        <button class="btn btn-warning">Сохранить</button>
-        <a th:href="@{/order/}" class="btn btn-dark">Назад</a>
-    </form>
+<div>
+    <!--Контейнер страницы-->
+    <div style="position: absolute" class="container-fluid text-center">
+        <h1>Изменить город получателя</h1><br><br>
+        <!--    Форма добавления заказа-->
+        <div>
+            <form method="post" th:action="@{/order/update/}" th:object="${order}">
+                <!--        Передаём Id-->
+                <input th:field="*{id}" hidden/>
+                <label for="client-name">Название города выдачи:</label>
+                <input id="client-name" th:type="text" th:field="*{description}" required minlength="1"
+                       maxlength="255"/>
+                <button class="btn btn-warning">Сохранить</button>
+                <a th:href="@{/order/}" class="btn btn-dark">Назад</a>
+            </form>
+        </div>
+    </div>
+    <img src="https://celes.club/uploads/posts/2022-05/1653343324_11-celes-club-p-legkaya-atletika-fon-dlya-prezentatsii-kra-12.jpg"
+         width="2500" height="1350">
 </div>
 </body>
 </html>

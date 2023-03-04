@@ -7,44 +7,50 @@
 </head>
 <body>
 <!--Контейнер страницы-->
-<div class="container-fluid text-center">
-    <h1>Пункт выдачи товара</h1>
-    <table class="table table-bordered">
-        <!--      Шапка таблицы-->
-        <thead class="table-dark">
-        <tr>
-            <th>ID</th>
-            <th>Отправление</th>
-            <th>Меню навигации</th>
-        </tr>
-        </thead>
-        <!--        Тело таблицы-->
-        <tbody>
-        <th:block th:each="order :${orders} ">
-            <tr>
-                <td>[[${order.id}]]</td>
-                <td>[[${order.description}]]</td>
-                <td>
-                    <a th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
-                    <a th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
-                    <a th:href="@{'/order/detail/' + ${order.id}}" class="btn btn-info">Описание</a>
-                    <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
-                    <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
-                    <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
+<div>
+    <div style="position: absolute" class="container-fluid text-center">
+        <h1>Пункт выдачи товара</h1>
+        <div>
+            <table class="table table-bordered">
+                <!--      Шапка таблицы-->
+                <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Отправление</th>
+                    <th>Меню навигации</th>
+                </tr>
+                </thead>
+                <!--        Тело таблицы-->
+                <tbody>
+                <th:block th:each="order :${orders} ">
+                    <tr>
+                        <td>[[${order.id}]]</td>
+                        <td>[[${order.description}]]</td>
+                        <td>
+                            <a th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
+                            <a th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
+                            <a th:href="@{'/order/detail/' + ${order.id}}" class="btn btn-info">Описание</a>
+                            <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
+                            <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
+                            <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
 
-                </td>
-            </tr>
-        </th:block>
-        </tbody>
-    </table>
-    <br><br>
-    <!--    Добавление заказа-->
-    <div>
-        <a th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a>
+                        </td>
+                    </tr>
+                </th:block>
+                </tbody>
+            </table>
+            <br><br>
+            <!--    Добавление заказа-->
+            <div>
+                <a th:href="@{/order/add/}" class="btn btn-warning"><h1>Добавить новый заказ</h1></a>
+            </div>
+            <br><br>
+            <h3><a th:href="@{/}">Вернуться на главную</a></h3>
+            [[${goodMsg}]]
+        </div>
     </div>
-    <br><br>
-    <h3><a th:href="@{/}">Вернуться на главную</a></h3>
-    [[${goodMsg}]]
+    <img src="https://phonoteka.org/uploads/posts/2022-02/1645151889_65-phonoteka-org-p-krasivii-fon-sport-71.jpg"
+         width="2500" height="1500">
 </div>
 </body>
 </html>

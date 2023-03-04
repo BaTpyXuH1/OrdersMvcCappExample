@@ -7,18 +7,24 @@
 </head>
 <body>
 <!--Контейнер страницы-->
-<div class="container-fluid text-center">
-    <h1>Изменить клиента</h1><br><br>
-    <!--    Форма добавления клиента-->
-    <form method="post" th:action="@{/client/update/}" th:object="${client}">
-<!--        Передаём Id-->
-        <input th:field="*{id}" hidden/>
-        <!--        Имя клиента-->
-        <label for="client-name">Имя клиента:</label>
-        <input id="client-name" th:type="text" th:field="*{clientName}" required minlength="1" maxlength="255"/>
-        <button class="btn btn-success">Сохранить</button>
-        <a th:href="@{/client/}" class="btn btn-dark">Назад</a>
-    </form>
+<div>
+    <div style="position: absolute" class="container-fluid text-center">
+        <h1 style="color: white">Изменить клиента</h1>
+        <!--    Форма добавления клиента-->
+        <div>
+            <form method="post" th:action="@{/client/update/}" th:object="${client}">
+                <!--        Передаём Id-->
+                <input th:field="*{id}" hidden/>
+                <!--        Имя клиента-->
+
+                <label for="client-name" style="color: white">Имя клиента:</label>
+                <input id="client-name" th:type="text" th:field="*{clientName}" required minlength="1" maxlength="255"/>
+                <button class="btn btn-warning">Сохранить</button>
+                <a th:href="@{/client/}" class="btn btn-dark">Назад</a>
+            </form>
+        </div>
+    </div>
+    <img src="https://cdnb.artstation.com/p/assets/images/images/000/044/645/large/Jaime.jpg" width="2500">
 </div>
 </body>
 </html>

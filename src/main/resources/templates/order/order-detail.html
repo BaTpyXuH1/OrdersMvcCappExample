@@ -6,11 +6,16 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<div class="container-fluid text-center">
-    <h1>Отправление</h1><br><br>
-    <h2>[[${order}]]</h2><br><br>
-    <a th:href="@{/order/}" class="btn btn-dark"><h1>Назад</h1></a>
-
+<div>
+    <div style="position: absolute" class="container-fluid text-center">
+        <h1>Отправление</h1><br><br>
+        <div>
+            <h2>[[${order}]]</h2><br><br>
+            <a th:href="@{/order/}" class="btn btn-dark"><h1>Назад</h1></a>
+        </div>
+    </div>
+    <img src="https://cdn.culture.ru/images/6ad76cab-0e7b-5bde-8319-947f01997759"
+         width="2500" height="1400">
 </div>
 </body>
 </html>

@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>orderItem-detail</title>
-  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <meta charset="UTF-8">
+    <title>orderItem-detail</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<div class="container-fluid text-center">
-  <h1>Описание</h1><br><br>
-  <h2>[[${orderItem}]]</h2><br><br>
-  <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="500" height="400"></td>
-  <a th:href="@{/orderItem/}" class="btn btn-dark"><h1>Назад</h1></a>
+<div>
+    <div style="position: absolute" class="container-fluid text-center">
+        <h1>Описание</h1><br><br>
+        <div>
+            <h2>[[${orderItem}]]</h2><br><br>
+            <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="500" height="400">
+            </td>
+            <a th:href="@{/orderItem/}" class="btn btn-dark"><h1>Назад</h1></a>
+        </div>
+    </div>
+    <img src="http://oboi.ws/filters/earlybird_17_9486_oboi_jenergija_1920x1080.jpg"
+         width="2500" height="1350">
 </div>
 </body>
 </html>

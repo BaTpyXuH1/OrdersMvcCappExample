@@ -6,15 +6,17 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<!--Контейнер страницы-->
-<div class="container-fluid text-center">
-    <h1>Добавить новую корзину товаров</h1><br><br>
-    <!--Форма добавления заказа-->
-    <form method="post" th:action="@{/orderItem/add/}" th:object="${orderItem}">
-        <!--Описание заказа-->
-        <label for="orderItem-quantityItem">Кол-во товара :</label>
-        <input id="orderItem-quantityItem" th:type="number" th:field="*{quantityItem}" required minlength="1"/>
-        <!--Поле выбора вариантов заказа-->
+<div>
+    <!--Контейнер страницы-->
+    <div style="position: absolute" class="container-fluid text-center">
+        <h1>Добавить новую корзину товаров</h1><br><br>
+        <!--Форма добавления заказа-->
+        <div>
+            <form method="post" th:action="@{/orderItem/add/}" th:object="${orderItem}">
+                <!--Описание заказа-->
+                <label for="orderItem-quantityItem">Кол-во товара :</label>
+                <input id="orderItem-quantityItem" th:type="number" th:field="*{quantityItem}" required minlength="1"/>
+                <!--Поле выбора вариантов заказа-->
                 <label for="orderItem-order">Заказ</label>
                 <select id="orderItem-order" th:field="*{order}">
                     <th:block th:each="order : ${orders}">
@@ -27,12 +29,15 @@
                         <option th:value="${item.id}">[[${item}]]</option>
                     </th:block>
                 </select>
-        <button class="btn btn-danger">Добавить корзину</button>
-        <a th:href="@{/orderItem/}" class="btn btn-dark">Назад</a>
-    </form>
-    <br><br>
-    <h3><a th:href="@{/}">Вернутся на главную</a></h3>
-
+                <button class="btn btn-danger">Добавить корзину</button>
+                <a th:href="@{/orderItem/}" class="btn btn-dark">Назад</a>
+            </form>
+            <br><br>
+            <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+        </div>
+    </div>
+    <img src="https://catherineasquithgallery.com/uploads/posts/2021-03/1614673491_74-p-sportivnii-muzikalnii-fon-86.png"
+         width="2500" height="1350">
 </div>
 </body>
 </html>

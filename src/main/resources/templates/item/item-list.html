@@ -6,49 +6,57 @@
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<!--Контейнер страницы-->
-<div class="container-fluid text-center">
-    <h1>Список товаров</h1>
-    <!--    Пройдемся в цикле по каждому товару и выведем его-->
-    <table class="table table-bordered">
-        <!--        Шапка таблицы-->
-        <thead class="table-dark">
-        <tr>
-            <th>Название товара</th>
-            <th>Товар</th>
-            <th>Цена $</th>
-            <th>Артикул</th>
-            <th>Меню навигации</th>
+<div>
+    <!--Контейнер страницы-->
+    <div style="position: absolute" class="container-fluid text-center">
+        <h1>Список товаров</h1>
+        <div>
+            <!--    Пройдемся в цикле по каждому товару и выведем его-->
+            <table class="table table-bordered">
+                <!--        Шапка таблицы-->
+                <thead class="table-dark">
+                <tr>
+                    <th>Название товара</th>
+                    <th>Товар</th>
+                    <th>Цена $</th>
+                    <th>Артикул</th>
+                    <th>Меню навигации</th>
 
-        </tr>
-        </thead>
-        <tbody>
-        <th:block th:each="item: ${items}">
-            <!--        В каждой строке таблицы выведем товар-->
-            <tr>
-                <td>[[${item.itemName}]]</td>
-                <td><img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="300" height="200"></td>
-                <td>[[${item.itemPrice}]] </td>
-                <td>[[${item.itemArticle}]]</td>
+                </tr>
+                </thead>
+                <tbody>
+                <th:block th:each="item: ${items}">
+                    <!--        В каждой строке таблицы выведем товар-->
+                    <tr>
+                        <td>[[${item.itemName}]]</td>
+                        <td><img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="300" height="200">
+                        </td>
+                        <td>[[${item.itemPrice}]]</td>
+                        <td>[[${item.itemArticle}]]</td>
 
-                <td>
-                    <a th:href="@{'/item/delete/' + ${item.id}}" class="btn btn-danger">Удалить</a>
-                    <a th:href="@{'/item/update/' + ${item.id}}" class="btn btn-warning">Изменить</a>
-                    <a th:href="@{'/item/detail/' + ${item.id}}" class="btn btn-info">Описание</a>
-                    <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
-                    <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
-                    <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
-                </td>
-            </tr>
-        </th:block>
-    </table><br><br>
-    <!--    Добавление товара-->
-    <div>
-        <a th:href="@{/item/add/}" class="btn btn-primary"><h1>Добавить новый товар</h1></a>
+                        <td>
+                            <a th:href="@{'/item/delete/' + ${item.id}}" class="btn btn-danger">Удалить</a>
+                            <a th:href="@{'/item/update/' + ${item.id}}" class="btn btn-warning">Изменить</a>
+                            <a th:href="@{'/item/detail/' + ${item.id}}" class="btn btn-info">Описание</a>
+                            <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                            <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
+                            <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
+                        </td>
+                    </tr>
+                </th:block>
+            </table>
+            <br><br>
+            <!--    Добавление товара-->
+            <div>
+                <a th:href="@{/item/add/}" class="btn btn-primary"><h1>Добавить новый товар</h1></a>
+            </div>
+            <br><br>
+            <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+            [[${goodMsg}]]
+        </div>
     </div>
-    <br><br>
-    <h3><a th:href="@{/}">Вернутся на главную</a></h3>
-    [[${goodMsg}]]
+    <img src="https://d3gykfqzdbmcsi.cloudfront.net/fileadmin/user_upload/sport_lezeca.jpg"
+         width="2500" height="1350">
 </div>
 </body>
 </html>
