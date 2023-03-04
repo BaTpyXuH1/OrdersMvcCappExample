@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
 </head>
 <body>
-<h1>Sign in</h1>
-
-<th:block th:if="${param.error}" class="alert">
-    Error
-</th:block>
-
 <form th:action="@{/login}" method="post">
-    <label>
-        Login:
-        <input type="text" name="username"/>
-    </label>
-    <label>
-        Password:
-        <input type="password" name="password"/>
-    </label>
-    <button> Sign in </button>
+    <div>
+        <div style="position: absolute" class="container-fluid text-center"><h1>Авторизация</h1>
+            <div>
+                <label>
+                    Логин :
+                    <input type="text" name="username"/>
+                </label>
+                <label>
+                    Пароль :
+                    <input type="password" name="password"/>
+                    <button class="btn btn-warning"> Войти</button>
+                </label>
+                <th:block th:if="${param.error}" class="alert">
+                    Ошибка ввода данных...
+                </th:block>
+            </div>
+        </div>
+        <img src="https://klike.net/uploads/posts/2022-12/1672384679_7-21.jpg">
+    </div>
 </form>
 </body>
 </html>
