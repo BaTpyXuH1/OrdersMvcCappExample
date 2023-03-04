@@ -9,6 +9,7 @@
 <div class="container-fluid text-center">
   <h1>Описание товара</h1><br><br>
   <h2>[[${item}]]</h2><br><br>
+  <td><img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="500" height="400"></td>
   <a th:href="@{/item/}" class="btn btn-dark"><h1>Назад</h1></a>
 
 </div>

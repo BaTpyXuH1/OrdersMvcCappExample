@@ -77,6 +77,6 @@ public class Item {
 
     @Override
     public String toString() {
-        return  itemName  + "(Артикул : " + itemArticle + ")";
+        return "(Id : " + id + ")," + itemName  + "(Артикул : " + itemArticle + ")";
     }
 }

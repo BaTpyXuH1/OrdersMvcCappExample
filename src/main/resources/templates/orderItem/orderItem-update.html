@@ -16,6 +16,7 @@
         <input  th:value="*{item.id}" th:field="*{item}" hidden/>
         <label for="quantityItem-name">Кол-во товаров</label>
         <input id="quantityItem-name" th:type="number" th:field="*{quantityItem}" />
+        <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="300" height="200"></td>
         <button class="btn btn-danger">Сохранить</button>
         <a th:href="@{/orderItem/}" class="btn btn-dark">Назад</a>
     </form>

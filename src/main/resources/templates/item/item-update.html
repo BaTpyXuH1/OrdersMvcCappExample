@@ -15,6 +15,7 @@
         <input th:field="*{id}" hidden/>
         <label for="item-name">Название товара:</label>
         <input id="item-name" th:type="text" th:field="*{itemName}" required minlength="1" maxlength="255"/>
+        <td><img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="300" height="200"></td>
         <button class="btn btn-primary">Сохранить</button>
         <a th:href="@{/item/}" class="btn btn-dark">назад</a>
     </form>

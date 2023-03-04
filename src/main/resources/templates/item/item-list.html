@@ -14,7 +14,6 @@
         <!--        Шапка таблицы-->
         <thead class="table-dark">
         <tr>
-            <th>ID</th>
             <th>Название товара</th>
             <th>Товар</th>
             <th>Артикул</th>
@@ -26,9 +25,8 @@
         <th:block th:each="item: ${items}">
             <!--        В каждой строке таблицы выведем товар-->
             <tr>
-                <td>[[${item.id}]]</td>
                 <td>[[${item.itemName}]]</td>
-                <td><img th:src="@{'data:image/jpeg;base64,' + ${item.itemName}}"></td>
+                <td><img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="300" height="200"></td>
                 <td>[[${item.itemArticle}]]</td>
 
                 <td>

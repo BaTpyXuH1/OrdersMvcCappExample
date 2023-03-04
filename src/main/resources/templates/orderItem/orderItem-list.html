@@ -13,7 +13,6 @@
         <!--      Шапка таблицы-->
         <thead class="table-dark">
         <tr>
-            <th>ID</th>
             <th>Количество товаров</th>
             <th>Заказ</th>
             <th>Название товара</th>
@@ -25,11 +24,10 @@
         <tbody>
         <th:block th:each="orderItem :${orderItems}">
             <tr>
-                <td>[[${orderItem.id}]]</td>
                 <td>[[${orderItem.quantityItem}]]</td>
                 <td>[[${orderItem.order}]]</td>
                 <td>[[${orderItem.item.itemName}]]</td>
-                <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.itemName}}"></td>
+                <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="300" height="200"></td>
                 <td>[[${orderItem.item.itemArticle}]]</td>
                 <td>
                     <a th:href="@{'/orderItem/delete/' + ${orderItem.id}}" class="btn btn-danger">Удалить</a>
