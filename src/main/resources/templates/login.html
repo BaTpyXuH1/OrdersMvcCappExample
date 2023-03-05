@@ -7,25 +7,22 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="wrapper_login text-center" >
+<div class="wrapper_login text-center">
     <form th:action="@{/login}" method="post">
-        <div><h1>Авторизация</h1>
-            <div>
-                <label>
-                    Логин :
-                    <input type="text" name="username"/>
-                </label>
-                <label>
-                    Пароль :
-                    <input type="password" name="password"/>
-                    <button class="btn btn-warning"> Войти</button>
-                </label>
-                <th:block th:if="${param.error}" class="alert">
-                    Ошибка ввода данных...
-                </th:block>
-            </div>
-        </div>
- </div>
-</form>
+        <h1>Авторизация</h1>
+        <label>
+            Логин :
+            <input type="text" name="username"/>
+        </label>
+        <label>
+            Пароль :
+            <input type="password" name="password"/>
+            <button class="btn btn-warning"> Войти</button>
+        </label>
+        <th:block th:if="${param.error}" class="alert">
+            Ошибка ввода данных...
+        </th:block>
+    </form>
+</div>
 </body>
 </html>

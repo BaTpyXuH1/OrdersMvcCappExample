@@ -14,7 +14,6 @@
             <thead class="table-dark">
             <tr>
                 <th>Количество товаров</th>
-                <th>Заказ</th>
                 <th>Название товара</th>
                 <th>Товар</th>
                 <th>Цена $</th>
@@ -25,17 +24,18 @@
             <tbody>
             <th:block th:each="orderItem :${orderItems}">
                 <tr>
-                    <td>[[${orderItem.quantityItem}]]</td>
-                    <td>[[${orderItem.order}]]</td>
-                    <td>[[${orderItem.item.itemName}]]</td>
-                    <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="300"
-                             height="200"></td>
-                    <td>[[${orderItem.item.itemPrice}]]</td>
-                    <td>[[${orderItem.item.itemArticle}]]</td>
+                    <td><h1>[[${orderItem.quantityItem}]]</h1></td>
+                    <td><h1>[[${orderItem.item.itemName}]]</h1></td>
+                    <td>
+                        <a th:href="@{'/orderItem/detail/' + ${orderItem.id}}">
+                            <img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="300" height="200">
+                        </a>
+                    </td>
+                    <td><h1>[[${orderItem.item.itemPrice}]]</h1></td>
+                    <td><h1>[[${orderItem.item.itemArticle}]]</h1></td>
                     <td>
                         <a th:href="@{'/orderItem/delete/' + ${orderItem.id}}" class="btn btn-danger">Удалить</a>
                         <a th:href="@{'/orderItem/update/' + ${orderItem.id}}" class="btn btn-primary">Изменить</a>
-                        <a th:href="@{'/orderItem/detail/' + ${orderItem.id}}" class="btn btn-info">Описание</a>
                         <a th:href="@{/client/ }" class="btn btn-success">Список клиентов</a>
                         <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
                         <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>

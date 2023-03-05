@@ -8,45 +8,47 @@
 </head>
 <body>
 <div class="wrapper_list text-center">
-        <h1>Список товаров</h1>
-        <div>
-            <table class="table table-bordered">
-                <thead class="table-dark">
+    <h1>Список товаров</h1>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Название товара</th>
+                <th>Товар</th>
+                <th>Цена $</th>
+                <th>Меню навигации</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="item: ${items}">
                 <tr>
-                    <th>Название товара</th>
-                    <th>Товар</th>
-                    <th>Цена $</th>
-                    <th>Артикул</th>
-                    <th>Меню навигации</th>
+                    <td><h1>[[${item.itemName}]]</h1></td>
+                    <td>
+                        <a th:href="@{'/item/detail/' + ${item.id}}">
+                            <img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="300" height="200">
+                        </a>
+                    </td>
+                    <td><h1>[[${item.itemPrice}]]</h1></td>
+                    <td>
+                        <a th:href="@{'/item/delete/' + ${item.id}}"
+                           class="btn btn-danger">Удалить</a>
+                        <a th:href="@{'/item/update/' + ${item.id}}"
+                           class="btn btn-primary">Изменить</a>
+                        <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                        <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
+                        <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
+                    </td>
                 </tr>
-                </thead>
-                <tbody>
-                <th:block th:each="item: ${items}">
-                    <tr>
-                        <td>[[${item.itemName}]]</td>
-                        <td><img th:src="@{'data:image/jpeg;base64,' + ${item.previewImage}}" width="300" height="200">
-                        </td>
-                        <td>[[${item.itemPrice}]]</td>
-                        <td>[[${item.itemArticle}]]</td>
-                        <td>
-                            <a th:href="@{'/item/delete/' + ${item.id}}" class="btn btn-danger">Удалить</a>
-                            <a th:href="@{'/item/update/' + ${item.id}}" class="btn btn-warning">Изменить</a>
-                            <a th:href="@{'/item/detail/' + ${item.id}}" class="btn btn-info">Описание</a>
-                            <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
-                            <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
-                            <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
-                        </td>
-                    </tr>
-                </th:block>
-            </table>
-            <br><br>
-            <div>
-                <a th:href="@{/item/add/}" class="btn btn-primary"><h1>Добавить новый товар</h1></a>
-            </div>
-            <br><br>
-            <h3><a th:href="@{/}">Вернутся на главную</a></h3>
-            [[${goodMsg}]]
+            </th:block>
+        </table>
+        <br><br>
+        <div>
+            <a th:href="@{/item/add/}" class="btn btn-primary"><h1>Добавить новый товар</h1></a>
         </div>
+        <br><br>
+        <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+        [[${goodMsg}]]
     </div>
+</div>
 </body>
 </html>

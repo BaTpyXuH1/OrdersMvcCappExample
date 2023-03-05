@@ -8,16 +8,16 @@
 </head>
 <body>
 <!--Главная страница-->
-<div class="wrapper_index">
-    <div class="text-center">
-        <h1>Добро пожаловать!</h1>
-        <h1><a  th:if="${isAdmin}" th:href="@{/client/}" class="btn btn-success">Управление клиентами</a></h1>
-        <h1><a th:href="@{/order/}" class="btn btn-warning">Город выдачи товара</a></h1>
-        <h1><a th:href="@{/item/}" class="btn btn-primary">Управление товарами</a></h1>
-        <h1><a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a></h1>
-        <h1><a th:href="@{/login}" class="btn btn-light">выход</a></h1>
-        <h1 th:if="${isAdmin}">Виден Админу</h1>
-    </div>
+<div class="wrapper_index text-center ">
+    <h1>Добро пожаловать!</h1>
+    <td>
+        <a th:if="${isAdmin}" th:href="@{/client/}" class="btn btn-success">Управление клиентами</a>
+        <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Город выдачи товара</a>
+        <a th:href="@{/item/}" class="btn btn-primary">Управление товарами</a>
+        <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
+    </td>
+    <h1><a th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a></h1>
+    <h1 th:if="${isAdmin}">Виден Админу</h1>
 </div>
 </body>
 </html>

@@ -21,16 +21,16 @@
             <tbody>
             <th:block th:each="order :${orders} ">
                 <tr>
-                    <td>[[${order.id}]]</td>
-                    <td>[[${order.description}]]</td>
+                    <td><h1>[[${order.id}]]</h1></td>
+                    <td>
+                        <a th:href="@{'/order/detail/' + ${order.id}}" class="btn"><h1>[[${order.description}]]</h1></a>
+                    </td>
                     <td>
                         <a th:href="@{'/order/delete/' + ${order.id}}" class="btn btn-danger">Удалить</a>
                         <a th:href="@{'/order/update/' + ${order.id}}" class="btn btn-warning">Изменить</a>
-                        <a th:href="@{'/order/detail/' + ${order.id}}" class="btn btn-info">Описание</a>
                         <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
                         <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
                         <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
-
                     </td>
                 </tr>
             </th:block>
