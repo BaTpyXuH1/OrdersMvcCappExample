@@ -1,6 +1,7 @@
 package org.top.ordersmvccappexample.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,8 +22,12 @@ public class ClientController {
     private IDaoClient daoClient;
 
     @GetMapping("/")
-    public String listALl(Model model) {
+    public String listALl(Model model, Authentication auth) {
         List<Client> clients = daoClient.listAll();
+        if (auth != null)
+            model.addAttribute("isAdmin", auth.getAuthorities().toString().contains("ADMIN"));
+        else
+            model.addAttribute("isAdmin",false);
         model.addAttribute("clients",clients);
         return "/client/client-list";
     }

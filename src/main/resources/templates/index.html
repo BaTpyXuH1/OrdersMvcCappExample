@@ -8,8 +8,8 @@
 </head>
 <body>
 <!--Главная страница-->
-<div class="wrapper_index text-center ">
-    <h1>Добро пожаловать!</h1>
+<div class="wrapper_index text-center">
+    <h1>Добро пожаловать!</h1><br><br>
     <td>
         <a th:if="${isAdmin}" th:href="@{/client/}" class="btn btn-success">Управление клиентами</a>
         <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Город выдачи товара</a>

@@ -33,7 +33,10 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/webjars/**").permitAll()
-                        .requestMatchers("/user/*").hasRole("ADMIN")
+                        .requestMatchers("/user/*","/client/delete/**","/order/delete/**"
+                                ).hasRole("ADMIN")
+                        .requestMatchers("/user/*","/client/update/**","/order/update/**",
+                                "/item/update/**","/orderItem/update/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form

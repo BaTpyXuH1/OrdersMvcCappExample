@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="wrapper_list text-center">
+    <a th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a>
     <h1>Список товаров</h1>
     <div>
         <table class="table table-bordered">
@@ -30,12 +31,10 @@
                     </td>
                     <td><h1>[[${item.itemPrice}]]</h1></td>
                     <td>
-                        <a th:href="@{'/item/delete/' + ${item.id}}"
-                           class="btn btn-danger">Удалить</a>
-                        <a th:href="@{'/item/update/' + ${item.id}}"
-                           class="btn btn-primary">Изменить</a>
-                        <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
-                        <a th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
+                        <a th:href="@{'/item/delete/' + ${item.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:if="${isAdmin}" th:href="@{'/item/update/' + ${item.id}}" class="btn btn-primary">Изменить</a>
+                        <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                        <a th:if="${isAdmin}" th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
                         <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
                     </td>
                 </tr>

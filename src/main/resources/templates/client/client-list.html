@@ -8,6 +8,7 @@
 </head>
 <body>
 <div class="wrapper_list text-center">
+    <a th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a>
     <h1>Список клиентов</h1>
     <div>
         <table class="table table-bordered">
@@ -22,12 +23,13 @@
                 <tr>
                     <td><h1>[[${client.id}]]</h1></td>
                     <td>
-                        <a th:href="@{'/client/detail/' + ${client.id}}" class="btn"><h1>[[${client.clientName}]]</h1></a>
+                        <a th:href="@{'/client/detail/' + ${client.id}}" class="btn"><h1>[[${client.clientName}]]</h1>
+                        </a>
                     </td>
                     <td>
-                        <a th:href="@{'/client/delete/' + ${client.id}}" class="btn btn-danger">Удалить</a>
-                        <a th:href="@{'/client/update/' + ${client.id}}" class="btn btn-primary">Изменить</a>
-                        <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                        <a th:if="${isAdmin}" th:href="@{'/client/delete/' + ${client.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:if="${isAdmin}" th:href="@{'/client/update/' + ${client.id}}" class="btn btn-primary">Изменить</a>
+                        <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
                         <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
                         <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
                     </td>
@@ -36,7 +38,7 @@
         </table>
         <br><br>
         <div>
-            <a th:href="@{/client/add/}" class="btn btn-success"><h1>Добавить нового клиента</h1></a>
+            <a th:if="${isAdmin}" th:href="@{/client/add/}" class="btn btn-success"><h1>Добавить нового клиента</h1></a>
         </div>
         <br><br>
         <h3><a th:href="@{/}">Вернутся на главную</a></h3>

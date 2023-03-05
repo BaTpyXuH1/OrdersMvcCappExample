@@ -1,6 +1,7 @@
 package org.top.ordersmvccappexample.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,8 +31,12 @@ public class OrderItemController {
 
 
     @GetMapping("/")
-    public String listAll(Model model) {
+    public String listAll(Model model, Authentication auth) {
         List<OrderItem> orderItems = daoOrderItem.listAll();
+        if (auth != null)
+            model.addAttribute("isAdmin", auth.getAuthorities().toString().contains("ADMIN"));
+        else
+            model.addAttribute("isAdmin",false);
         model.addAttribute("orderItems", orderItems);
         return "/orderItem/orderItem-list";
     }
