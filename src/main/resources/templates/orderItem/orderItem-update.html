@@ -4,15 +4,13 @@
     <meta charset="UTF-8">
     <title>orderItem-list</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div>
-    <!--Контейнер страницы-->
-    <div style="position: absolute" class="container-fluid text-center">
+<div class="wrapper_list text-center">
         <h1>Изменить кол-во товаров</h1>
         <div>
             <form method="post" th:action="@{/orderItem/update/}" th:object="${orderItem}">
-                <!--        Передаём Id-->
                 <input th:field="*{id}" hidden/>
                 <input th:value="*{order.id}" th:field="*{order}" hidden/>
                 <input th:value="*{item.id}" th:field="*{item}" hidden/>
@@ -25,8 +23,5 @@
             </form>
         </div>
     </div>
-    <img src="https://i.ytimg.com/vi/0jvcF-3oCZk/maxresdefault_live.jpg"
-         width="2500" height="1350">
-</div>
 </body>
 </html>

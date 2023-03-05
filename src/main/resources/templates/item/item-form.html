@@ -4,34 +4,26 @@
     <meta charset="UTF-8">
     <title>item-form</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
-    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div>
-    <!--Контейнер страницы-->
-    <div style="position: absolute" class="container-fluid text-center">
-        <h1>Добавить новый товар</h1><br><br>
-        <div>
-            <!--Форма добавления товара-->
-            <form method="post" th:action="@{/item/add/}" th:object="${item}"
-                  enctype="multipart/form-data">
-
-                <!--Название товара-->
-                <label for="item-name">Название товара:</label>
-                <input id="item-name" th:type="text" th:field="*{itemName}" required minlength="1" maxlength="255">
-                <label>
-                    Название товара:
-                    <input th:type="file" th:name="previewImageData">
-                </label>
-                <button class="btn btn-primary">Добавить товар</button>
-                <a th:href="@{/item/}" class="btn btn-dark">Назад</a>
-            </form>
-            <br><br>
-            <h3><a th:href="@{/}">Вернутся на главную</a></h3>
-        </div>
+<div class="wrapper_list text-center">
+    <h1>Добавить новый товар</h1><br><br>
+    <div>
+        <form method="post" th:action="@{/item/add/}" th:object="${item}"
+              enctype="multipart/form-data">
+            <label for="item-name">Название товара:</label>
+            <input id="item-name" th:type="text" th:field="*{itemName}" required minlength="1" maxlength="255">
+            <label>
+                Название товара:
+                <input th:type="file" th:name="previewImageData">
+            </label>
+            <button class="btn btn-primary">Добавить товар</button>
+            <a th:href="@{/item/}" class="btn btn-dark">Назад</a>
+        </form>
+        <br><br>
+        <h3><a th:href="@{/}">Вернутся на главную</a></h3>
     </div>
-    <img src="https://d3gykfqzdbmcsi.cloudfront.net/fileadmin/user_upload/sport_lezeca.jpg"
-         width="2500" height="1350">
 </div>
 </body>
 </html>

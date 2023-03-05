@@ -4,50 +4,43 @@
     <meta charset="UTF-8">
     <title>client-list</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<!--Контейнер страницы-->
-<div>
-    <div style="position: absolute" class="container-fluid text-center">
-        <h1>Список клиентов</h1>
-        <!--    Пройдемся в цикле по каждому клиенту и выведем его-->
-        <div>
-            <table class="table table-bordered">
-                <!--        Шапка таблицы-->
-                <thead class="table-dark">
+<div class="wrapper_list text-center">
+    <h1>Список клиентов</h1>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Имя клиента</th>
+                <th>Меню навигации</th>
+            </tr>
+            </thead>
+            <th:block th:each="client: ${clients}">
                 <tr>
-                    <th>ID</th>
-                    <th>Имя клиента</th>
-                    <th>Меню навигации</th>
+                    <td>[[${client.id}]]</td>
+                    <td>[[${client.clientName}]]</td>
+                    <td>
+                        <a th:href="@{'/client/delete/' + ${client.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:href="@{'/client/update/' + ${client.id}}" class="btn btn-warning">Изменить</a>
+                        <a th:href="@{'/client/detail/' + ${client.id}}" class="btn btn-info">Описание</a>
+                        <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                        <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
+                        <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
+                    </td>
                 </tr>
-                </thead>
-                <th:block th:each="client: ${clients}">
-                    <!--        В каждой строке таблицы выведем клиента-->
-                    <tr>
-                        <td>[[${client.id}]]</td>
-                        <td>[[${client.clientName}]]</td>
-                        <td>
-                            <a th:href="@{'/client/delete/' + ${client.id}}" class="btn btn-danger">Удалить</a>
-                            <a th:href="@{'/client/update/' + ${client.id}}" class="btn btn-warning">Изменить</a>
-                            <a th:href="@{'/client/detail/' + ${client.id}}" class="btn btn-info">Описание</a>
-                            <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
-                            <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
-                            <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
-                        </td>
-                    </tr>
-                </th:block>
-            </table>
-            <br><br>
-            <!--    Добавление клиента-->
-            <div>
-                <a th:href="@{/client/add/}" class="btn btn-success"><h1>Добавить нового клиента</h1></a>
-            </div>
-            <br><br>
-            <h3><a th:href="@{/}">Вернутся на главную</a></h3>
-            [[${goodMsg}]]
+            </th:block>
+        </table>
+        <br><br>
+        <div>
+            <a th:href="@{/client/add/}" class="btn btn-success"><h1>Добавить нового клиента</h1></a>
         </div>
+        <br><br>
+        <h3><a th:href="@{/}">Вернутся на главную</a></h3>
+        [[${goodMsg}]]
     </div>
-    <img src="https://image.winudf.com/v2/image1/Y29tLndyb25ndHVybi5tYWdpY3Bob3RvbGFiX3NjcmVlbl81XzE1NTExMDUwMTJfMDMx/screen-5.jpg?fakeurl=1&type=.jpg" width="2500" height="1500">
 </div>
 </body>
 </html>

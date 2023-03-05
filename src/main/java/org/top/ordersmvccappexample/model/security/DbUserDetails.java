@@ -24,11 +24,16 @@ public class DbUserDetails implements UserDetails {
     }
 
     // конструктор
-    public DbUserDetails(User dbUser) { this.dbUser = dbUser;}
+    public DbUserDetails(User dbUser) {
+        this.dbUser = dbUser;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.<GrantedAuthority>singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        if (dbUser.getLogin().equals("admin"))
+            return Collections.<GrantedAuthority>singletonList(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        else
+            return Collections.<GrantedAuthority>singletonList(new SimpleGrantedAuthority("ROLE_USER"));
     }
 
     @Override

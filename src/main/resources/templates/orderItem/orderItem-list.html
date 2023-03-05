@@ -4,60 +4,55 @@
     <meta charset="UTF-8">
     <title>orderItem-list</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div>
-    <!--Контейнер страницы-->
-    <div style="position: absolute" class="container-fluid text-center">
-        <h1>Корзина товаров</h1>
-        <div>
-            <table class="table table-bordered">
-                <!--      Шапка таблицы-->
-                <thead class="table-dark">
+<div class="wrapper_list text-center">
+    <h1>Корзина товаров</h1>
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-dark">
+            <tr>
+                <th>Количество товаров</th>
+                <th>Заказ</th>
+                <th>Название товара</th>
+                <th>Товар</th>
+                <th>Цена $</th>
+                <th>Артикул</th>
+                <th>Меню навигации</th>
+            </tr>
+            </thead>
+            <tbody>
+            <th:block th:each="orderItem :${orderItems}">
                 <tr>
-                    <th>Количество товаров</th>
-                    <th>Заказ</th>
-                    <th>Название товара</th>
-                    <th>Товар</th>
-                    <th>Цена $</th>
-                    <th>Артикул</th>
-                    <th>Меню навигации</th>
-                </tr>
-                </thead>
-                <tbody>
-                <th:block th:each="orderItem :${orderItems}">
-                    <tr>
-                        <td>[[${orderItem.quantityItem}]]</td>
-                        <td>[[${orderItem.order}]]</td>
-                        <td>[[${orderItem.item.itemName}]]</td>
-                        <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="300"
-                                 height="200"></td>
-                        <td>[[${orderItem.item.itemPrice}]]</td>
-                        <td>[[${orderItem.item.itemArticle}]]</td>
-                        <td>
-                            <a th:href="@{'/orderItem/delete/' + ${orderItem.id}}" class="btn btn-danger">Удалить</a>
-                            <a th:href="@{'/orderItem/update/' + ${orderItem.id}}" class="btn btn-primary">Изменить</a>
-                            <a th:href="@{'/orderItem/detail/' + ${orderItem.id}}" class="btn btn-info">Описание</a>
-                            <a th:href="@{/client/ }" class="btn btn-success">Список клиентов</a>
-                            <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
-                            <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
+                    <td>[[${orderItem.quantityItem}]]</td>
+                    <td>[[${orderItem.order}]]</td>
+                    <td>[[${orderItem.item.itemName}]]</td>
+                    <td><img th:src="@{'data:image/jpeg;base64,' + ${orderItem.item.previewImage}}" width="300"
+                             height="200"></td>
+                    <td>[[${orderItem.item.itemPrice}]]</td>
+                    <td>[[${orderItem.item.itemArticle}]]</td>
+                    <td>
+                        <a th:href="@{'/orderItem/delete/' + ${orderItem.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:href="@{'/orderItem/update/' + ${orderItem.id}}" class="btn btn-primary">Изменить</a>
+                        <a th:href="@{'/orderItem/detail/' + ${orderItem.id}}" class="btn btn-info">Описание</a>
+                        <a th:href="@{/client/ }" class="btn btn-success">Список клиентов</a>
+                        <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
+                        <a th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
 
-                        </td>
-                    </tr>
-                </th:block>
-                </tbody>
-            </table>
-            <br><br>
-            <div>
-                <a th:href="@{/orderItem/add/}" class="btn btn-danger"><h1>Добавить корзину товаров</h1></a>
-            </div>
-            <br><br>
-            <h3><a th:href="@{/}">Вернуться на главную</a></h3>
-            [[${goodMsg}]]
+                    </td>
+                </tr>
+            </th:block>
+            </tbody>
+        </table>
+        <br><br>
+        <div>
+            <a th:href="@{/orderItem/add/}" class="btn btn-danger"><h1>Добавить корзину товаров</h1></a>
         </div>
+        <br><br>
+        <h3><a th:href="@{/}">Вернуться на главную</a></h3>
+        [[${goodMsg}]]
     </div>
-    <img src="https://phonoteka.org/uploads/posts/2021-03/1616657815_50-p-fon-tantsi-53.jpg"
-         width="2500" height="1350">
 </div>
 </body>
 </html>

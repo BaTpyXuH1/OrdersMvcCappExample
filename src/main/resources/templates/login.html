@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <title>Login</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<form th:action="@{/login}" method="post">
-    <div>
-        <div style="position: absolute" class="container-fluid text-center"><h1>Авторизация</h1>
+<div class="wrapper_login text-center" >
+    <form th:action="@{/login}" method="post">
+        <div><h1>Авторизация</h1>
             <div>
                 <label>
                     Логин :
@@ -24,9 +25,7 @@
                 </th:block>
             </div>
         </div>
-        <img src="https://i.pinimg.com/originals/a3/dd/47/a3dd4772c08a6bb003163c7db64cb0db.jpg"
-             width="2500" height="1400">
-    </div>
+ </div>
 </form>
 </body>
 </html>

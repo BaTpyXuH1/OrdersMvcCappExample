@@ -4,21 +4,20 @@
     <meta charset="UTF-8">
     <title>index</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
 <!--Главная страница-->
-<div>
-    <div style="position: absolute" class="container-fluid text-center">
+<div class="wrapper_index">
+    <div class="text-center">
         <h1>Добро пожаловать!</h1>
-        <div>
-            <h1><a th:href="@{/client/}" class="btn btn-success">Управление клиентами</a></h1>
-            <h1><a th:href="@{/order/}" class="btn btn-warning">Город выдачи товара</a></h1>
-            <h1><a th:href="@{/item/}" class="btn btn-primary">Управление товарами</a></h1>
-            <h1><a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a></h1>
-        </div>
+        <h1><a  th:if="${isAdmin}" th:href="@{/client/}" class="btn btn-success">Управление клиентами</a></h1>
+        <h1><a th:href="@{/order/}" class="btn btn-warning">Город выдачи товара</a></h1>
+        <h1><a th:href="@{/item/}" class="btn btn-primary">Управление товарами</a></h1>
+        <h1><a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a></h1>
+        <h1><a th:href="@{/login}" class="btn btn-light">выход</a></h1>
+        <h1 th:if="${isAdmin}">Виден Админу</h1>
     </div>
-    <img src="https://klike.net/uploads/posts/2022-12/1672384679_7-21.jpg"
-    width="2500" height="1400">
 </div>
 </body>
 </html>

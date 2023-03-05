@@ -4,35 +4,27 @@
     <meta charset="UTF-8">
     <title>order-form</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div>
-    <!--Контейнер страницы-->
-    <div style="position: absolute" class="container-fluid text-center">
-        <h1>Добавить пункт выдачи товара</h1><br><br>
-        <!--Форма добавления заказа-->
-        <div>
-            <form method="post" th:action="@{/order/add/}" th:object="${order}">
-                <!--Описание заказа-->
-                <label for="order-desc">Описание :</label>
-                <input id="order-desc" th:type="text" th:field="*{description}" required minlength="1"/>
-                <!--Поле клиента заказа-->
-                <label for="order-client">Клиент</label>
-                <select id="order-client" th:field="*{client}">
-                    <th:block th:each="client : ${clients}">
-                        <option th:value="${client.id}">[[${client}]]</option>
-                    </th:block>
-                </select>
-                <button class="btn btn-warning">Добавить пункт выдачи товара</button>
-                <a th:href="@{/order/}" class="btn btn-dark">Назад</a>
-            </form>
-            <br><br>
-
-    <h3><a th:href="@{/}">Вернутся на главную</a></h3>
-        </div>
+<div class="wrapper_list text-center">
+    <h1>Добавить пункт выдачи товара</h1><br><br>
+    <div>
+        <form method="post" th:action="@{/order/add/}" th:object="${order}">
+            <label for="order-desc">Описание :</label>
+            <input id="order-desc" th:type="text" th:field="*{description}" required minlength="1"/>
+            <label for="order-client">Клиент</label>
+            <select id="order-client" th:field="*{client}">
+                <th:block th:each="client : ${clients}">
+                    <option th:value="${client.id}">[[${client}]]</option>
+                </th:block>
+            </select>
+            <button class="btn btn-warning">Добавить пункт выдачи товара</button>
+            <a th:href="@{/order/}" class="btn btn-dark">Назад</a>
+        </form>
+        <br><br>
+        <h3><a th:href="@{/}">Вернутся на главную</a></h3>
     </div>
-    <img src="https://catherineasquithgallery.com/uploads/posts/2021-03/1614673368_21-p-fon-na-sportivnuyu-temu-24.jpg"
-         width="2500" height="1400">
 </div>
 </body>
 </html>
