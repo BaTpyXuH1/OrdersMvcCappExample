@@ -30,7 +30,7 @@ public class DbDaoClientTest {
        }
     @Test
     void add() {
-        Client client = dbDaoClient.add(new Client("Piter"));
+        Client client = dbDaoClient.add(new Client());
         System.out.println(client);
 
 

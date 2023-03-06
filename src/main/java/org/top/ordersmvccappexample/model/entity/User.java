@@ -16,11 +16,20 @@ public class User {
 
     @Column(nullable = false)
     private String password;
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "client_id",nullable = false)
+    private Client client;
+
 
     public User() {}
+
     public User(String login, String password) {
         this.login = login;
         this.password = password;
+    }
+
+    public User(Client client){
+        this.client = client;
     }
 
     public Integer getId() {
@@ -45,5 +54,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 }
