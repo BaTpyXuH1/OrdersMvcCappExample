@@ -11,7 +11,7 @@
 <div class="wrapper_index text-center">
     <h1>Добро пожаловать!</h1><br><br>
     <td>
-        <a th:if="${isAdmin}" th:href="@{/client/}" class="btn btn-success">Управление клиентами</a>
+        <a th:if="${isAdmin}" th:href="@{/user/}" class="btn btn-success">Управление покупателями</a>
         <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Город выдачи товара</a>
         <a th:href="@{/item/}" class="btn btn-primary">Управление товарами</a>
         <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>

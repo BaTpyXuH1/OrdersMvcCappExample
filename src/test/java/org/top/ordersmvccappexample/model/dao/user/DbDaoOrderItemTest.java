@@ -1,9 +1,8 @@
-package org.top.ordersmvccappexample.model.dao.client;
+package org.top.ordersmvccappexample.model.dao.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.top.ordersmvccappexample.model.dao.basket.DbDaoBasket;
 import org.top.ordersmvccappexample.model.dao.item.DbDaoItem;
 import org.top.ordersmvccappexample.model.dao.order.DbDaoOrder;
 import org.top.ordersmvccappexample.model.dao.orderitem.DbDaoOrderItem;
@@ -22,8 +21,6 @@ public class DbDaoOrderItemTest {
 
     @Autowired
     private DbDaoItem dbDaoItem;
-    @Autowired
-    private DbDaoBasket dbDaoBasket;
 
     @Test
     void listAll() {

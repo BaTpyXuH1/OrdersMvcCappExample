@@ -8,14 +8,14 @@
 </head>
 <body>
 <div class="wrapper_list text-center">
-    <h1>Изменить клиента</h1>
+    <h1>Изменить покупателя</h1>
     <div>
-        <form method="post" th:action="@{/client/update/}" th:object="${client}">
+        <form method="post" th:action="@{/user/update/}" th:object="${user}">
             <input th:field="*{id}" hidden/>
-            <label for="client-name" style="color: white">Имя клиента:</label>
-            <input id="client-name" th:type="text" th:field="*{clientName}" required minlength="1" maxlength="255"/>
+            <label for="user-name" style="color: white">Имя покупателя:</label>
+            <input id="user-name" th:type="text" th:field="*{userName}" required minlength="1" maxlength="255"/>
             <button class="btn btn-warning">Сохранить</button>
-            <a th:href="@{/client/}" class="btn btn-dark">Назад</a>
+            <a th:href="@{/user/}" class="btn btn-dark">Назад</a>
         </form>
     </div>
 </div>

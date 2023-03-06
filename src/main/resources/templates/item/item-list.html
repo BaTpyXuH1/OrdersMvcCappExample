@@ -34,7 +34,7 @@
                         <a th:href="@{'/item/delete/' + ${item.id}}" class="btn btn-danger">Удалить</a>
                         <a th:if="${isAdmin}" th:href="@{'/item/update/' + ${item.id}}" class="btn btn-primary">Изменить</a>
                         <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
-                        <a th:if="${isAdmin}" th:href="@{/client/}" class="btn btn-success">Список клиентов</a>
+                        <a th:if="${isAdmin}" th:href="@{/templates/user/}" class="btn btn-success">Список клиентов</a>
                         <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
                     </td>
                 </tr>

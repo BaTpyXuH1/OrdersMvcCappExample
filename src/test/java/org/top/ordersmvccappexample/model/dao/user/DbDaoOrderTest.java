@@ -1,11 +1,12 @@
-package org.top.ordersmvccappexample.model.dao.client;
+package org.top.ordersmvccappexample.model.dao.user;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.top.ordersmvccappexample.model.dao.order.DbDaoOrder;
-import org.top.ordersmvccappexample.model.entity.Client;
 import org.top.ordersmvccappexample.model.entity.Order;
+import org.top.ordersmvccappexample.model.entity.User;
+
 import java.util.List;
 
 
@@ -15,7 +16,7 @@ public class DbDaoOrderTest {
    @Autowired
     private DbDaoOrder dbDaoOrder;
    @Autowired
-   private DbDaoClient dbDaoClient;
+   private DbDaoUser dbDaoUser;
     @Test
     void listAll() {
         List<Order> orderList = dbDaoOrder.listAll();
@@ -29,8 +30,8 @@ public class DbDaoOrderTest {
     }
     @Test
     void add() {
-        Client client = dbDaoClient.getById(2);
-        Order order = dbDaoOrder.add(new Order("asd",client));
+        User user = dbDaoUser.getById(2);
+        Order order = dbDaoOrder.add(new Order("asd",user));
         System.out.println(order);
 
 

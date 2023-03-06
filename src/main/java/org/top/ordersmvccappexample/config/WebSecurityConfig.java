@@ -33,9 +33,9 @@ public class WebSecurityConfig {
         http
                 .authorizeHttpRequests((requests) -> requests
                         .requestMatchers("/", "/webjars/**").permitAll()
-                        .requestMatchers("/user/*","/client/delete/**","/order/delete/**"
+                        .requestMatchers("/user/*","/user/delete/**","/order/delete/**"
                                 ).hasRole("ADMIN")
-                        .requestMatchers("/user/*","/client/update/**","/order/update/**",
+                        .requestMatchers("/user/*","/user/update/**","/order/update/**",
                                 "/item/update/**","/orderItem/update/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )

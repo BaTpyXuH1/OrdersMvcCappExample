@@ -37,7 +37,7 @@
                     <td>
                         <a th:if="${isAdmin}" th:href="@{'/orderItem/delete/' + ${orderItem.id}}" class="btn btn-danger">Удалить</a>
                         <a th:if="${isAdmin}" th:href="@{'/orderItem/update/' + ${orderItem.id}}" class="btn btn-primary">Изменить</a>
-                        <a th:if="${isAdmin}" th:href="@{/client/ }" class="btn btn-success">Список клиентов</a>
+                        <a th:if="${isAdmin}" th:href="@{/templates/user/ }" class="btn btn-success">Список покупателей</a>
                         <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
                         <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
 

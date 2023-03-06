@@ -16,8 +16,8 @@ public class Order {
     @Column(nullable = false)
     private String description;
     @ManyToOne
-    @JoinColumn(name = "client_id", nullable = false)
-    private Client client;
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
     @OneToMany(mappedBy = "order",cascade = CascadeType.ALL)
     private Set<OrderItem> orderItemSet = new HashSet<>();
 
@@ -27,9 +27,9 @@ public class Order {
     }
 
 
-    public Order(String description, Client client) {
+    public Order(String description, User user) {
         this.description = description;
-        this.client = client;
+        this.user = user;
     }
 
     public Integer getId() {
@@ -48,12 +48,12 @@ public class Order {
         this.description = description;
     }
 
-    public Client getClient() {
-        return client;
+    public User getUser() {
+        return user;
     }
 
-    public void setClient(Client client) {
-        this.client = client;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Set<OrderItem> getOrderItemSet() {
@@ -66,7 +66,7 @@ public class Order {
 
     @Override
     public String toString() {
-        return  description + "-(" + "Заказчик : " +  client + ")";
+        return  description + "-(" + "Заказчик : " +  user + ")";
 
 
     }

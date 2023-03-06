@@ -2,16 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>client-detail</title>
+    <title>user-detail</title>
     <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}"/>
     <link rel="stylesheet" type="text/css" th:href="@{/css/styles.css}">
 </head>
 <body>
     <div class="wrapper_list text-center">
-        <h1>Описание клиента</h1>
+        <h1>Описание покупателя</h1>
         <div>
-            <h2>[[${client}]]</h2><br><br>
-            <a th:href="@{/client/}" class="btn btn-dark"><h1>Назад</h1></a>
+            <h2>[[${user}]]</h2><br><br>
+            <a th:href="@{/user/}" class="btn btn-dark"><h1>Назад</h1></a>
         </div>
     </div>
 </body>

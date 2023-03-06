@@ -4,9 +4,10 @@ package org.top.ordersmvccappexample.model.dao.order;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.top.ordersmvccappexample.model.dao.client.ClientRepository;
-import org.top.ordersmvccappexample.model.entity.Client;
+import org.top.ordersmvccappexample.model.dao.user.UserRepository;
 import org.top.ordersmvccappexample.model.entity.Order;
+import org.top.ordersmvccappexample.model.entity.User;
+
 import java.util.List;
 
 
@@ -16,7 +17,7 @@ public class DbDaoOrder implements IDaoOrder {
     @Autowired
     private OrderRepository orderRepository;
     @Autowired
-    private ClientRepository clientRepository;
+    private UserRepository userRepository;
 
 
     @Override
@@ -35,10 +36,10 @@ public class DbDaoOrder implements IDaoOrder {
     @Override
     @Transactional
     public Order add(Order order) {
-        Client client = clientRepository.findById(order.getClient().getId()).orElse(null);
-        if (client == null)
+        User user = userRepository.findById(order.getUser().getId()).orElse(null);
+        if (user == null)
             return null;
-        client.orderSet.add(order);
+        user.orderSet.add(order);
         return orderRepository.save(order);
     }
 

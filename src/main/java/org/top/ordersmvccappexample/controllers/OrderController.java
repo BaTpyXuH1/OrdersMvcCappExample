@@ -9,10 +9,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import org.top.ordersmvccappexample.model.dao.client.IDaoClient;
 import org.top.ordersmvccappexample.model.dao.order.IDaoOrder;
-import org.top.ordersmvccappexample.model.entity.Client;
+import org.top.ordersmvccappexample.model.dao.user.IDaoUser;
 import org.top.ordersmvccappexample.model.entity.Order;
+import org.top.ordersmvccappexample.model.entity.User;
+
 import java.util.List;
 
 @Controller
@@ -21,7 +22,7 @@ public class OrderController {
     @Autowired
     private IDaoOrder daoOrder;
     @Autowired
-    private IDaoClient daoClient;
+    private IDaoUser daoUser;
 
 
     @GetMapping("/")
@@ -39,9 +40,9 @@ public class OrderController {
     @GetMapping("/add/")
     public String getOrderForm(Model model) {
         Order order = new Order();
-        List<Client> clients = daoClient.listAll();
+        List<User> users = daoUser.listAll();
         model.addAttribute("order", order);
-        model.addAttribute("clients", clients);
+        model.addAttribute("users", users);
         return "/order/order-form";
     }
 

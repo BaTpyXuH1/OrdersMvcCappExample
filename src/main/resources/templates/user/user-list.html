@@ -9,26 +9,26 @@
 <body>
 <div class="wrapper_list text-center">
     <a th:href="@{/login}" class="btn btn-outline-dark">Выйти из аккаунта</a>
-    <h1>Список клиентов</h1>
+    <h1>Список покупателей</h1>
     <div>
         <table class="table table-bordered">
             <thead class="table-dark">
             <tr>
                 <th>ID</th>
-                <th>Имя клиента</th>
+                <th>Имя покупателя</th>
                 <th>Меню навигации</th>
             </tr>
             </thead>
-            <th:block th:each="client: ${clients}">
+            <th:block th:each="user: ${users}">
                 <tr>
-                    <td><h1>[[${client.id}]]</h1></td>
+                    <td><h1>[[${user.id}]]</h1></td>
                     <td>
-                        <a th:href="@{'/client/detail/' + ${client.id}}" class="btn"><h1>[[${client.clientName}]]</h1>
+                        <a th:href="@{'/user/detail/' + ${user.id}}" class="btn"><h1>[[${user.userName}]]</h1>
                         </a>
                     </td>
                     <td>
-                        <a th:if="${isAdmin}" th:href="@{'/client/delete/' + ${client.id}}" class="btn btn-danger">Удалить</a>
-                        <a th:if="${isAdmin}" th:href="@{'/client/update/' + ${client.id}}" class="btn btn-primary">Изменить</a>
+                        <a th:if="${isAdmin}" th:href="@{'/user/delete/' + ${user.id}}" class="btn btn-danger">Удалить</a>
+                        <a th:if="${isAdmin}" th:href="@{'/user/update/' + ${user.id}}" class="btn btn-primary">Изменить</a>
                         <a th:if="${isAdmin}" th:href="@{/order/}" class="btn btn-warning">Список заказов</a>
                         <a th:href="@{/item/}" class="btn btn-primary">Список товаров</a>
                         <a th:href="@{/orderItem/}" class="btn btn-danger">Корзина товаров</a>
@@ -38,7 +38,7 @@
         </table>
         <br><br>
         <div>
-            <a th:if="${isAdmin}" th:href="@{/client/add/}" class="btn btn-success"><h1>Добавить нового клиента</h1></a>
+            <a th:if="${isAdmin}" th:href="@{/user/add/}" class="btn btn-success"><h1>Добавить нового покупателя</h1></a>
         </div>
         <br><br>
         <h3><a th:href="@{/}">Вернутся на главную</a></h3>
